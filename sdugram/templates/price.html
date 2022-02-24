@@ -6,21 +6,21 @@
 				  <div class="card-body">
 				    <h5 class="card-title">Помощь по урокам</h5>
 				    <p class="card-text">Завтра по линейка нужна помощь <br> @username</p>
-				    <h3>5000 тг</h3>
+				    <h3>{{ pc_1 }} тг</h3>
 				  </div>
 				</div>
 				<div class="card product_card" style="width: 18rem; background-color: #c0c0c0;">
 				  <div class="card-body">
 				    <h5 class="card-title">Помощь по урокам</h5>
 				    <p class="card-text">Кім линейкадан өте қатты біледі лсға <br> @username</p>
-				    <h3>2000 тг</h3>
+				    <h3>{{ pc_2 }}тг</h3>
 				  </div>
 				</div>
 				<div class="card product_card" style="width: 18rem; background-color: #ffd700;">
 				  <div class="card-body">
 				    <h5 class="card-title">Помощь по урокам</h5>
 				    <p class="card-text">Продам курсы Java,пак курсов все вместе <br> @username</p>
-				    <h3>1000 тг</h3>
+				    <h3>{{ pc_3 }} тг</h3>
 				  </div>
 				</div>
   			</div>
@@ -38,18 +38,12 @@
 			    </tr>
 			  </thead>
 			  <tbody>
+			  {% for obj in price_table %}
 			    <tr>
-			      <td>Услуга 1 Услуга 1 Услуга 1</td>
-			      <td>1000</td>
+			      <td> {{ obj.pt_title }}</td>
+			      <td> {{ obj.pt_new_price }}</td>
 			    </tr>
-			    <tr>
-			      <td>Услуга 2 Услуга 2 Услуга 2</td>
-			      <td>1000</td>
-			    </tr>
-			    <tr>
-			      <td>Услуга 3 Услуга 3 Услуга 3</td>
-			      <td>1000</td>
-			    </tr>
+				{% endfor %}
 			  </tbody>
 			</table>
   		</div>
