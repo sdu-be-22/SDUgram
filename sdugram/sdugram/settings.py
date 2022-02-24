@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'telebot.apps.TelebotConfig',
+    'signIN.apps.SigninConfig',
+    'siginUP.apps.SiginupConfig',
     'price.apps.PriceConfig',
     'cms.apps.CmsConfig',
     'crm.apps.CrmConfig',
