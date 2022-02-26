@@ -1,0 +1,26 @@
+{% load static %}
+{% block info_seller %}
+<section>
+    <h3>Пользователь</h3>
+    <div class="d-flex p-2">
+        <img src="{% static './img/default_avatar.png' %}" width="100" height="100">
+        <div>
+            <h4>{{ first_name }}</h4>
+            <p>Онлайн в {{ was_online }}</p>
+        </div>
+    </div>
+    <button>Все объявления автора</button>
+    <div class="d-flex p-2">
+        <button>Показать телефон</button>
+        <button>Сообщение</button>
+    </div>
+    <h3>Местоположение</h3>
+    <div class="d-flex p-2">
+        <div>
+            <p>{{ location }}</p>
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}
