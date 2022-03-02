@@ -1,5 +1,4 @@
 import requests
-import telebot
 from .models import TeleSettings
 
 
