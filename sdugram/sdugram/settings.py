@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'price.apps.PriceConfig',
     'cms.apps.CmsConfig',
     'crm.apps.CrmConfig',
+    'siginUP.apps.SiginupConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
