@@ -2,11 +2,11 @@
 
 <!-- карусель -->
 <section>
-    <div id="carouselExampleCaptions" class="carousel slide container" data-ride="carousel">
+    <div id="carouselExampleCaptions" class="carousel slide container" data-ride="carousel" style="width: 900px">
       <div class="carousel-inner">
           {% for slide in slider_list %}
         <div class="carousel-item {{ slide.cms_css }}">
-          <img src="{{ slide.cms_img.url }}" class="d-block w-100" style="height: 600px" alt="...">
+          <img src="{{ slide.cms_img.url }}" class="d-block w-30" style="height: 600px" alt="...">
           <div class="carousel-caption d-none d-md-block">
             <h5 class="slaider_h">{{ slide.cms_title }}</h5>
             <p class="slaider_p">{{ slide.cms_text }}</p>

@@ -18,9 +18,11 @@ from django.urls import path
 from crm import views
 from django.conf.urls.static import static
 from django.conf import settings
+from details import views as detail_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.first_page),
+    path('details/', detail_view.show_details),
     path('advertisements/', views.Adboard, name = 'advertisements'),
     path('thanks/', views.thanks_page, name = 'thanks_page')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
