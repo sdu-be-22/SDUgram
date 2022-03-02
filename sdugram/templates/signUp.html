@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block signUp %}
+    <form action="{% url 'submission' %}" method = "post">
+    {% csrf_token %}
+        <div>
+        <label for="">First Name</label>
+        <input type="text" name = "firstName">
+        </div>
+        <div>
+        <label for="">First Name</label>
+        <input type="text" name = "lastName">
+        </div>
+        <input type="submit">
+
+    </form>
+{% endblock %}
