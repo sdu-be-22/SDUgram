@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+hello world
+{% load static %}
+{% block index %}
+
+<section>
+  <h1 style="text-align:center">Advertisements</h1>
+
+  <div class="container">
+  <div class="row">
+    {% for a in advt_list %}
+      <div class="card col-md-3" style="width: 18rem;">
+        <img src="{{ a.advt_img.url  }}" class="card-img-top" style="width:250px; height:250px">
+        <div class="card-body">
+          <h5 class="card-title">{{ a.advt_name }}</h5>
+          <p class="card-text">{{ a.advt_price }} KZT</p>
+          <a href="#" class="btn btn-primary">Посмотреть</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+    </div>
+</section>
+
+{% endblock %}
