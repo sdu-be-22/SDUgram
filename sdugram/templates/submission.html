@@ -1,9 +1,16 @@
 {% extends 'base.html' %}
-{% block thanks %}
-<div>
-<p>
-    {{ account.first_name }}
-</p>
-<p>Submission is successfully done!</p>
-</div>
+{% block index %}
+   <section>
+        <div class = "settingBlock">
+          {%if error_age %}
+          <p>{{error_age}}</p>
+            {%endif%}
+          <br>
+          {%if error_message %}
+          <p>{{error_message}}</p>
+           {%elif account%}
+            <p>Account is successfully created! {{account.firstName}}</p>
+            {%endif%}
+        </div>
+    </section>
 {% endblock %}
