@@ -19,16 +19,7 @@
   </head>
   <body>
 	<header class="container header">
-	  <a class="navbar-brand logo-top" href="#">
-	    <img src="{% static '/img/Logo2.png' %}" width="40" height="40" class="d-inline-block align-top" alt="" loading="lazy">
-	  </a>
-		<p id = "Logotext"> SDUgram</p>
-<!--	  <div class="contact-top">-->
-<!--                <a class="whatsapp-number" href="https://web.whatsapp.com/"></a>-->
-<!--                <a class="telegram-number" href="https://t.me/"></a>-->
-<!--              <a class="phone-number text-dark" href="tel:+74957777777">-->
-<!--              	<h5>+7(495)-777-77-77</h5></a>-->
-<!--      </div>-->
+        {% include 'header.html' %}
 	</header>
 
 {% block index %}
