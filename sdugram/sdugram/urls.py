@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+
+import myProfile.views
 from crm import views
 from django.conf.urls.static import static
 from django.conf import settings
@@ -29,4 +31,5 @@ urlpatterns = [
     path('signUp/', include("siginUP.urls")),
     path('apply/', applyAd_view.hotel_image_view),
     path('success', applyAd_view.success, name = 'success'),
+    path('myProfile/', myProfile.views.main_page, name='myProfile')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
