@@ -6,15 +6,17 @@ body {
     background-color: #C8F8F6;
 }
 .div_main {
-    padding: 2rem;
+    padding: 1rem;
     background-color: white;
     z-index: 1;
+    border-radius: 1rem;
 }
 .search_div {
     display: flex;
     background-color: #F2F4F5;
     padding: 3rem;
     margin-bottom: 1rem;
+    border-radius: 1rem;
 }
 .find_input {
     padding: 1.4rem;
