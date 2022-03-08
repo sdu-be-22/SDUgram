@@ -5,6 +5,7 @@ from django.db import models
 
 class Advt(models.Model):
     advt_host_id = models.IntegerField(default=1)
+    advt_item_id = models.IntegerField(default=-1)
     advt_date_created = models.DateField(auto_now=True)
     advt_type = models.CharField(max_length=100, default="Другие")
     advt_dt = models.DateTimeField(auto_now=True)

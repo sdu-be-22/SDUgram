@@ -41,6 +41,17 @@ body {
     box-shadow: 0px -5px 5px -5px rgba(0, 47, 52, 0.6);
     border: 0;
 }
+.li_choose {
+    color: #002F34;
+    list-style-type: circle;
+    cursor: pointer;
+}
+.li_choose:hover {
+    list-style-type: disc;
+    cursor: pointer;
+
+}
+
 
 /*Header*/
 .logo-top {
