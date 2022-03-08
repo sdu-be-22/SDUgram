@@ -1,21 +1,32 @@
 from django.shortcuts import render
-from .models import Order
 from .forms import OrderForm
 from cms.models import CmsSlider
 from price.models import PriceCard, PriceTable
 from telegrambot.sendMessage import sendTelegram
 from grid_panel.models import Advt
+from siginUP.models import Account
 
 
 # Create your views here.
 def first_page(request):
     slider_list = CmsSlider.objects.all()
     advt_list = Advt.objects.all()
+    for i in advt_list:
+        print(i)
     pc_1 = PriceCard.objects.get(pk=1)
     pc_2 = PriceCard.objects.get(pk=2)
     pc_3 = PriceCard.objects.get(pk=3)
     price_table = PriceTable.objects.all()
     form = OrderForm()
+
+    first_name = "Login"
+    last_name = ""
+
+    for i in Account.objects.all():
+        if i.status == "True":
+            first_name = i.firstName
+            last_name = i.lastName
+            break
 
     dict_obj = {'slider_list': slider_list,
                 'pc_1': pc_1,
@@ -23,7 +34,12 @@ def first_page(request):
                 'pc_3': pc_3,
                 'price_table': price_table,
                 'form': form,
-                'advt_list': advt_list}
+                'advt_list': advt_list,
+                'firstName': first_name,
+                'lastName': last_name}
+    if first_name == "Login":
+        dict_obj.pop("firstName")
+
     return render(request, './index.html', dict_obj)
 
 
