@@ -31,9 +31,12 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'myProfile.apps.MyProfileConfig',
+    'applyAd.apps.ApplyadConfig',
     'grid_panel.apps.GridPanelConfig',
     'telegrambot.apps.TelegrambotConfig',
     'price.apps.PriceConfig',
+    'header.apps.HeaderConfig',
     'cms.apps.CmsConfig',
     'crm.apps.CrmConfig',
     'siginUP.apps.SiginupConfig',
