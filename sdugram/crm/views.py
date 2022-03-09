@@ -11,6 +11,8 @@ from siginUP.models import Account
 def first_page(request):
     slider_list = CmsSlider.objects.all()
     advt_list = Advt.objects.all()
+    for i in advt_list:
+        print(i)
     pc_1 = PriceCard.objects.get(pk=1)
     pc_2 = PriceCard.objects.get(pk=2)
     pc_3 = PriceCard.objects.get(pk=3)

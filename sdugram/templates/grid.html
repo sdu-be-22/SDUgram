@@ -1,24 +1,36 @@
-{% extends 'base.html' %}
-hello world
 {% load static %}
 {% block index %}
 
 <section>
-  <h1 style="text-align:center">Advertisements</h1>
-
-  <div class="container">
-  <div class="row">
-    {% for a in advt_list %}
-      <div class="card col-md-3" style="width: 18rem;">
-        <img src="{{ a.advt_img.url  }}" class="card-img-top" style="width:250px; height:250px">
-        <div class="card-body">
-          <h5 class="card-title">{{ a.advt_name }}</h5>
-          <p class="card-text">{{ a.advt_price }} KZT</p>
-          <a href="#" class="btn btn-primary">Посмотреть</a>
+    <h1 style="text-align:center;">Главные рубрики</h1>
+    <ul>
+        <li class="li_choose">Услуги</li>
+        <li class="li_choose">Недвижимость</li>
+        <li class="li_choose">Электроника</li>
+        <li class="li_choose">Дом и сад</li>
+        <li class="li_choose">Работа</li>
+        <li class="li_choose">Мода и стиль</li>
+        <li class="li_choose">Детский мир</li>
+        <li class="li_choose">Хобби, отдых и спорт</li>
+        <li class="li_choose">Транспорт</li>
+        <li class="li_choose">Животные</li>
+        <li class="li_choose">Отдам даром</li>
+    </ul>
+    <div class="container container_grid">
+        <h1 style="text-align:center;">Объявления</h1>
+        <div class="row" style="text-align: center; align-content: center; justify-content: center;">
+            {% for a in advt_list %}
+                <div class="card col-md-2 m-1 card_c">
+                    <img src="{{ a.advt_img.url  }}" class="card-img-top" style="width: 10rem; height: 10rem">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ a.advt_name }}</h5>
+                        <p class="card-text">{{ a.advt_price }} KZT</p>
+                        <p class="card-text">{{ a.advt_location }}, Казахстан</p>
+                        <a href="#" class="btn btn-primary">Посмотреть</a>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
-      </div>
-    {% endfor %}
-  </div>
     </div>
 </section>
 
