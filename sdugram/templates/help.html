@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block index %}
+
+<section>
+    <div class="container container_grid">
+        <h1 style="text-align:center;">Questions</h1>
+        <div class="row" style="text-align: center; align-content: center; justify-content: center;">
+            {% for q in q_list %}
+                <div class="card col-md-5 m-1 card_c">
+
+                    <div class="card-body">
+                        <h5 class="card-title">{{ q.q_name }}</h5>
+                        <p class="card-text">{{ q.q_ans }} </p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

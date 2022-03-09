@@ -6,7 +6,7 @@ from .models import TeleSettings
 
 
 
-def sendTelegram(tg_name, tg_phone, tg_img):
+def sendTelegram(tg_name, tg_phone, tg_desc, tg_location, tg_img):
 	settings = TeleSettings.objects.get(pk=1)
 	token = str(settings.tg_token)
 	chat_id = str(settings.tg_chat)
@@ -23,7 +23,7 @@ def sendTelegram(tg_name, tg_phone, tg_img):
 	part_2 = text[b+1:c]
 	part_3 = text[d:-1]
 
-	text_slise = part_1 + tg_name + part_2 + str(tg_phone) + part_3
+	text_slise = part_1 + tg_name + part_2 + '\nphone: ' +  str(tg_phone) + part_3 + '\n' + 'Decsription: ' + tg_desc + '\nLocation: ' + tg_location
 	# e = tg_img.find('1_')
 	# tg_img = tg_img[e+2:len(tg_img)]
 	# print(tg_img)
