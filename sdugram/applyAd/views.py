@@ -25,12 +25,14 @@ def success(request):
         Ads = Ad.objects.all()
         size = len(Ads)
         Ads = Ad.objects.get(pk=size)
-        sendTelegram(tg_name=Ads.name, tg_phone=Ads.phone, tg_img=Ads.ad_img)
+        sendTelegram(tg_name=Ads.name, tg_phone=Ads.phone, tg_desc=Ads.description, tg_location=Ads.location, tg_img=Ads.ad_img)
 
     # element = Order(order_name = name, order_phone = phone)
     # element.save()
     # img = 'order_img/' + img;
-    return HttpResponse('successfully uploaded')
+    return render(request, 'thanks.html', {'ads': Ads
+                                           })
+   # return HttpResponse('Successfully uploaded to Moderation')
 
 
 def display_ad_images(request):
@@ -38,4 +40,4 @@ def display_ad_images(request):
         # getting all the objects of hotel.
         Ads = Ad.objects.all()
         return render((request, 'display_hotel_images.html',
-                       {'hotel_images': Ads}))
+                       {'hotel_images': Ads }))
