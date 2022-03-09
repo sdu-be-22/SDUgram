@@ -8,4 +8,4 @@ class AdForm(forms.ModelForm):
 
     class Meta:
         model = Ad
-        fields = ['name', 'phone','ad_img']
+        fields = ['name', 'phone', 'description','location',    'ad_img']
