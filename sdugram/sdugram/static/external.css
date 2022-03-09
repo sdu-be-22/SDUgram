@@ -1,3 +1,4 @@
+
 .div_background {
     background-color: #C8F8F6;
     padding: 7rem;
@@ -100,8 +101,6 @@ svg {
     padding-top: 8px;
     padding-bottom: 8px;
 }
-
-
 .btn_apply:before {
     content: '';
     background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
@@ -219,80 +218,4 @@ svg {
   /*font-size: 2em;*/
   text-align: center;
   padding-bottom: 7%;
-}
-#SignUpSection{
-    background-color:rgba(128, 128, 128, 0.808)
-}
-#mainContainer{
-    display: flex;
-    justify-content: center;
-    width:100%;
-    height: 900px;
-}
-#RegistrationBox{
-    display: flex;
-    flex-direction: column;
-    box-sizing:border-box;
-    background-color: hsla(204, 48%, 60%, 0.753);
-    border: rgba(255, 255, 255, 0.945) solid 10px;
-    width: 45%;
-    height: 90%;
-    margin-top: 10px;
-    padding-left:10px;
-    padding-right: 8px;
-}
-#Registration{
-    text-align: center;
-    font-size: 47px;
-    font-family: 'Playfair Display SC', serif;
-    font-weight: lighter;
-    margin-top: 20px;
-    margin-bottom: 12px;
-}
-#Welcome{
-    text-align: center;
-    font-size: 60px;
-    margin: 25px;
-    font-family: 'Parisienne', cursive;
-    font-weight: 500;
-}
-form>input{
-    margin-top: 38px;
-    height:32px;
-    margin-right:10px;
-    margin-left: 15px;
-}
-form>.length{
-    width:400px;
-}
-form>.genders{
-    margin-left: 15px;
-}
-form>label{
-    font-size:25px;
-    margin-left: 45px;
-    font-family: 'Staatliches', cursive;
-}
-#email, #cardNo{
-    width:230px;
-}
-#submitButton{
-    width:17%;
-    height:9%;
-    font-size: 1.5vw;
-    border-radius: 5px;
-    background-color: whitesmoke;
-    margin-left: 75%;
-    font-family: 'Questrial', sans-serif;
-}
-.settingBlock{
-    display: flex;
-    flex-direction: row;
-    background-color: antiquewhite;
-    height:600px;
-}
-.settingBlock>p{
-    font-size: 25px;
-    text-align: center;
-    font-family: 'Parisienne', cursive;
 }
