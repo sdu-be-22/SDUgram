@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'help.apps.HelpConfig',
     'myProfile.apps.MyProfileConfig',
     'applyAd.apps.ApplyadConfig',
     'grid_panel.apps.GridPanelConfig',

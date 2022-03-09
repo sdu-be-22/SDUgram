@@ -22,6 +22,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 from details import views as detail_view
 from applyAd import views as applyAd_view
+from help import views as help_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.first_page, name="Home"),
@@ -31,5 +32,6 @@ urlpatterns = [
     path('signUp/', include("siginUP.urls")),
     path('apply/', applyAd_view.hotel_image_view, name='apply'),
     path('success', applyAd_view.success, name = 'success'),
-    path('myProfile/', myProfile.views.main_page, name='myProfile')
+    path('myProfile/', myProfile.views.main_page, name='myProfile'),
+    path('help/', help_views.help_page)
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
