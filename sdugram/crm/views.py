@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render
 from .forms import OrderForm
 from cms.models import CmsSlider
@@ -11,6 +12,9 @@ from siginUP.models import Account
 def first_page(request):
     slider_list = CmsSlider.objects.all()
     advt_list = Advt.objects.all()
+    paginator = Paginator(advt_list, 3)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     for i in advt_list:
         print(i)
     pc_1 = PriceCard.objects.get(pk=1)
@@ -36,7 +40,8 @@ def first_page(request):
                 'form': form,
                 'advt_list': advt_list,
                 'firstName': first_name,
-                'lastName': last_name}
+                'lastName': last_name,
+                'page_obj': page_obj}
     if first_name == "Login":
         dict_obj.pop("firstName")
 

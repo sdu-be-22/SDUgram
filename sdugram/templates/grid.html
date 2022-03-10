@@ -19,7 +19,7 @@
     <div class="container container_grid">
         <h1 style="text-align:center;">Объявления</h1>
         <div class="row" style="text-align: center; align-content: center; justify-content: center;">
-            {% for a in advt_list %}
+            {% for a in page_obj %}
                 <div class="card col-md-2 m-1 card_c">
                     <img src="{{ a.advt_img.url  }}" class="card-img-top" style="width: 10rem; height: 10rem">
                     <div class="card-body">
@@ -32,6 +32,15 @@
             {% endfor %}
         </div>
     </div>
+    <nav class="list-pages">
+        <ul>
+            {% for p in page_obj.paginator.page_range %}
+            <li class="page-num">
+               <p><a href="?page={{ p }}">{{ p }}</a></p>
+            </li>
+            {% endfor %}
+        </ul>
+    </nav>
 </section>
 
 {% endblock %}

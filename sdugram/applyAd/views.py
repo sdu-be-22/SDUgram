@@ -6,7 +6,7 @@ import telebot
 
 
 # Create your views here.
-def hotel_image_view(request):
+def image_view(request):
     if request.method == 'POST':
         form = AdForm(request.POST, request.FILES)
 
@@ -34,10 +34,3 @@ def success(request):
                                            })
    # return HttpResponse('Successfully uploaded to Moderation')
 
-
-def display_ad_images(request):
-    if request.method == 'GET':
-        # getting all the objects of hotel.
-        Ads = Ad.objects.all()
-        return render((request, 'display_hotel_images.html',
-                       {'hotel_images': Ads }))
