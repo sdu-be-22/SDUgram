@@ -17,7 +17,12 @@
         <li class="li_choose">Отдам даром</li>
     </ul>
     <div class="container container_grid">
-        <h1 style="text-align:center;">Объявления</h1>
+        {% if searched %}
+            <h1 style="text-align:center;">Поиск: {{ searched }}</h1>
+        {% else %}
+            <h1 style="text-align:center;">Объявления</h1>
+        {% endif %}
+        {% if advt_list %}
         <div class="row" style="text-align: center; align-content: center; justify-content: center;">
             {% for a in advt_list %}
                 <div class="card col-md-2 m-1 card_c">
@@ -31,6 +36,10 @@
                 </div>
             {% endfor %}
         </div>
+        {% else %}
+            <h1>Не найдено</h1>
+        {% endif %}
+
     </div>
 </section>
 

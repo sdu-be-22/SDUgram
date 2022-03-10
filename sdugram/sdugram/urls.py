@@ -25,6 +25,7 @@ from help import views as help_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.first_page, name="Home"),
+    path('search/', views.advt_detail_view, name="search"),
     path('details/', detail_view.show_details),
     path('advertisements/', views.Adboard, name = 'advertisements'),
     path('thanks/', views.thanks_page, name = 'thanks_page'),
