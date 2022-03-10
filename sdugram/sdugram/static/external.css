@@ -1,3 +1,4 @@
+
 .div_background {
     background-color: #C8F8F6;
     padding: 7rem;
@@ -100,8 +101,6 @@ svg {
     padding-top: 8px;
     padding-bottom: 8px;
 }
-
-
 .btn_apply:before {
     content: '';
     background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
@@ -219,6 +218,7 @@ svg {
   /*font-size: 2em;*/
   text-align: center;
   padding-bottom: 7%;
+<<<<<<< HEAD
 }
 #SignUpSection{
     background-color:rgba(128, 128, 128, 0.808)
@@ -299,3 +299,6 @@ form>label{
 
 
 
+=======
+}
+>>>>>>> 00c69f1383188daaa795e0146ec7d7d0a9ff8c92

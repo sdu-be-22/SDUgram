@@ -1,25 +1,47 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block signUp %}
-    <section id = "SignUpSection" >
-        <p id = "Welcome"> Welcome! </p>
-        <div id = "mainContainer">
-            <div id = "RegistrationBox">
-              <p id = "Registration"> Sign up</p>
+{% block index %}
+   <section>
+    <div id = "mainDiv">
+        <div id = "containerDiv">
 
-              <form action="{%url 'submission' %}" method="post">
-                  {% csrf_token %}
-                  <label for="names"> First Name:</label><input type="text" name = "firstName" class = "names length" maxlength="12" placeholder="first name in Latin alphabet" pattern = "[A-Za-z]{2,}"> <br>
-                  <label for="names"> Last Name:</label><input type="text" name = "lastName" class = "names length" maxlength="12" placeholder="last name in Latin alphabet" pattern = "[A-Za-z]{2,}"><br>
-                  <label for="age"> Age:</label><input type="number" name = "age" min="7" max = "30">
-                  <label for="">Gender: </label><input type="radio" name = "gender" value = "Male" required><label for="" class="genders">Male </label><input type="radio"  name = "gender" value = "Female"><label for="" class="genders">Female</label><br>
-                  <label for="">E-mail: </label> <input type="email" name = "email" id = "email" pattern = "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required autocomplete="on" class = "length"> <br>
-                  <label for="">Phone number: </label> <input type="tel" name = "phone" pattern = "+7[0-9]{3} [0-9]{3} [0-9]{2} [0-9]{2}"placeholder="+7(XXX)-XXX-XX-XX" class = "length"><br>
-                  <label for="">City: </label> <input type="text" name = "city" class = "length"><br>
-                  <label for="">Photo: </label> <input type="image"  name = "photo">
-                  <input type="submit" value = "Confirm" id = "submitButton">
-              </form>
+            <div id = "signInBlock">
+                <p id = "Welcome">Welcome Back!</p>
+                <p id = "text1" >If you are already have an account,login with your personal info</p>
+              <a id = "button"  onmouseover="change()" onmouseout = "back()">Login</a>
             </div>
+
+            <div id = "signUpBlock">
+               <p id = "title">Create Account</p>
+               <p id = "text2">use your email for registration:</p>
+               <div id = "inputContainer">
+                   <form action="{% url 'submission' %}" method="post">
+                       {% csrf_token %}
+                        <label for="">Email: </label><input type="email" name = "email" required><br>
+                        <label for="">Password: </label><input type="password" name = "password1" maxlength ="20" required ><br>
+                        <label for="">Validate password: </label><input type="password" name = "password2" required><br>
+                        <input type="submit" value="SIGN UP" id = "submitButton">
+                   </form>
+               </div>
+            </div>
+
         </div>
-    </section>
+    </div>
+   <script>
+       function change(){
+        document.getElementById("button").style.backgroundColor = "hsla(216, 49%, 40%, 0.671)";
+       }
+       function back(){
+        document.getElementById("button").style.backgroundColor = "";
+       }
+   </script>
+
+  </section>
+       {% if invalidPassword %}
+       <script>alert("Incompatible passwords. Please, try again!")</script>
+       {% elif invalidEmail %}
+       <script>alert("Email is already used. Please login to enter or use another email!")</script>
+       {% elif messageIsSent %}
+       <script>alert("Congratulations!!! You are successfully signed up!")</script>
+       {% endif %}
 {% endblock %}
