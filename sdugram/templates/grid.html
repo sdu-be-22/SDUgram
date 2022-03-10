@@ -20,10 +20,10 @@
         <h1 style="text-align:center;">Объявления</h1>
         <div class="row" style="text-align: center; align-content: center; justify-content: center;">
             {% for a in page_obj %}
-                <div class="card col-md-2 m-1 card_c">
-                    <img src="{{ a.advt_img.url  }}" class="card-img-top" style="width: 10rem; height: 10rem">
+                <div class="card col-md-3 m-1 card_c">
+                    <img src="{{ a.advt_img.url  }}" class="card-img-top" style="width: 16rem; height: 15rem">
                     <div class="card-body">
-                        <h5 class="card-title">{{ a.advt_name }}</h5>
+                        <h6 class="card-title">{{ a.advt_name }}</h6>
                         <p class="card-text">{{ a.advt_price }} KZT</p>
                         <p class="card-text">{{ a.advt_location }}, Казахстан</p>
                         <a href="#" class="btn btn-primary">Посмотреть</a>
@@ -32,15 +32,31 @@
             {% endfor %}
         </div>
     </div>
+    {% if page_obj.has_other_pages %}
     <nav class="list-pages">
         <ul>
+            {% if page_obj.has_previous %}
+            <li class="page-num">
+                <a href="?page={{ page_obj.previous_page_number }}"> &lt;</a>
+            </li>
+            {% endif  %}
             {% for p in page_obj.paginator.page_range %}
+            {% if page_obj.number == p %}
+            <li class="page-num page-num-selected"> {{ p }}</li>
+            {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2  %}
             <li class="page-num">
                <p><a href="?page={{ p }}">{{ p }}</a></p>
             </li>
+            {% endif %}
             {% endfor %}
+            {% if page_obj.has_next %}
+            <li class="page-num">
+                <a href="?page={{ page_obj.next_page_number }}"> &gt;</a>
+            </li>
+            {% endif  %}
         </ul>
     </nav>
+    {% endif %}
 </section>
 
 {% endblock %}
