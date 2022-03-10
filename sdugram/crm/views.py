@@ -14,34 +14,14 @@ def first_page(request):
 
 def advt_detail_view(request):
     advt_list = Advt.objects.all()
-    dict_obj = {'advt_list': advt_list}
     paginator = Paginator(advt_list, 1)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     for i in advt_list:
         print(i)
-    pc_1 = PriceCard.objects.get(pk=1)
-    pc_2 = PriceCard.objects.get(pk=2)
-    pc_3 = PriceCard.objects.get(pk=3)
-    price_table = PriceTable.objects.all()
-    form = OrderForm()
 
-    first_name = "Login"
-    last_name = ""
-
-
-    dict_obj = {'slider_list': slider_list,
-                'pc_1': pc_1,
-                'pc_2': pc_2,
-                'pc_3': pc_3,
-                'price_table': price_table,
-                'form': form,
-                'advt_list': advt_list,
-                'firstName': first_name,
-                'lastName': last_name,
+    dict_obj = {'advt_list': advt_list,
                 'page_obj': page_obj}
-    if first_name == "Login":
-        dict_obj.pop("firstName")
 
     if request.method == "POST":
         dict_obj["searched"] = request.POST["searched"]
