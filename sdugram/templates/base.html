@@ -10,7 +10,7 @@
       <link href="{% static 'signUp.css' %}" rel="stylesheet">
 	 <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
@@ -21,19 +21,21 @@
   <body>
 {% include 'header.html' %}
 
-{% block index %}
+{% if messages %}
+   {% for message in messages %}
+     <div class = "alert alert-{{ message.tags }}">{{ message }}</div>
+   {% endfor %}
+{% endif %}
 
+{% block index %}
 {% endblock %}
 
 {% block thanks %}
-
 {% endblock %}
 
 {% block detail %}
 {% endblock %}
 
-{% block signUp %}
-{% endblock %}
 <footer>
   		<div class="container">
   			<nav class="navbar navbar-light bg-light container">

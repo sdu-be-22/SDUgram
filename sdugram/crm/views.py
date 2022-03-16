@@ -4,7 +4,7 @@ from cms.models import CmsSlider
 from price.models import PriceCard, PriceTable
 from telegrambot.sendMessage import sendTelegram
 from grid_panel.models import Advt
-from siginUP.models import Account
+from signUp.models import Account
 
 
 # Create your views here.
