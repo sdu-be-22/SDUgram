@@ -26,11 +26,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.first_page, name="Home"),
     path('details/', detail_view.show_details),
-    path('advertisements/', views.Adboard, name='advertisements'),
+    path('advertisements/', views.Adboard, name = 'advertisements'),
     path('thanks/', views.thanks_page, name = 'thanks_page'),
-    path('signUp/', include("signUp.urls")),
+    path('signUp/', include("siginUP.urls")),
     path('apply/', applyAd_view.hotel_image_view, name='apply'),
-    path('success/', applyAd_view.success, name = 'success'),
+    path('success', applyAd_view.success, name = 'success'),
     path('myProfile/', myProfile.views.main_page, name='myProfile'),
     path('help/', help_views.help_page)
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
