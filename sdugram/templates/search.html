@@ -1,0 +1,12 @@
+{% block search %}
+    {% load static %}
+<div class="search_div">
+
+    <form method="post" action="{% url 'Home' %}">
+        {% csrf_token %}
+        <input name="searched" type="text" class="find_input" placeholder="3 054 402 объявлений рядом"/>
+        <input type="submit" class="btn_apply btn_search">Поиск</input>
+    </form>
+{#    <input class="location_input" type="text" placeholder="Весь Казахстан">#}
+</div>
+{% endblock %}
