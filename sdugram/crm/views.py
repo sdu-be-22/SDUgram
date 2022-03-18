@@ -13,9 +13,9 @@ def first_page(request):
     advt_list = Advt.objects.all()
     for i in advt_list:
         print(i)
-    pc_1 = PriceCard.objects.get(pk=1)
-    pc_2 = PriceCard.objects.get(pk=2)
-    pc_3 = PriceCard.objects.get(pk=3)
+    # pc_1 = PriceCard.objects.get(pk=1)
+    # pc_2 = PriceCard.objects.get(pk=2)
+    # pc_3 = PriceCard.objects.get(pk=3)
     price_table = PriceTable.objects.all()
     form = OrderForm()
 
@@ -29,9 +29,9 @@ def first_page(request):
             break
 
     dict_obj = {'slider_list': slider_list,
-                'pc_1': pc_1,
-                'pc_2': pc_2,
-                'pc_3': pc_3,
+                # 'pc_1': pc_1,
+                # 'pc_2': pc_2,
+                # 'pc_3': pc_3,
                 'price_table': price_table,
                 'form': form,
                 'advt_list': advt_list,

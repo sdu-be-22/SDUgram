@@ -31,15 +31,17 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'crispy_forms',
     'help.apps.HelpConfig',
     'myProfile.apps.MyProfileConfig',
     'applyAd.apps.ApplyadConfig',
     'grid_panel.apps.GridPanelConfig',
     'telegrambot.apps.TelegrambotConfig',
     'price.apps.PriceConfig',
+    'details.apps.DetailsConfig',
+    'signIN.apps.SigninConfig',
     'header.apps.HeaderConfig',
     'signUp.apps.SignUpConfig',
-    'crispy_forms',
     'cms.apps.CmsConfig',
     'crm.apps.CrmConfig',
     'django.contrib.admin',
