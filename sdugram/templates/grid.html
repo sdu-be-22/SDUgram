@@ -1,0 +1,71 @@
+{% load static %}
+{% block index %}
+
+<section>
+    <h1 style="text-align:center;">Главные рубрики</h1>
+    <ul>
+        <li class="li_choose">Услуги</li>
+        <li class="li_choose">Недвижимость</li>
+        <li class="li_choose">Электроника</li>
+        <li class="li_choose">Дом и сад</li>
+        <li class="li_choose">Работа</li>
+        <li class="li_choose">Мода и стиль</li>
+        <li class="li_choose">Детский мир</li>
+        <li class="li_choose">Хобби, отдых и спорт</li>
+        <li class="li_choose">Транспорт</li>
+        <li class="li_choose">Животные</li>
+        <li class="li_choose">Отдам даром</li>
+    </ul>
+    <div class="container container_grid">
+        {% if searched %}
+            <h1 style="text-align:center;">Поиск: {{ searched }}</h1>
+        {% else %}
+            <h1 style="text-align:center;">Объявления</h1>
+        {% endif %}
+        {% if advt_list %}
+        <div class="row" style="text-align: center; align-content: center; justify-content: center;">
+            {% for a in page_obj %}
+                <div class="card col-md-3 m-1 card_c">
+                    <img src="{{ a.advt_img.url  }}" class="card-img-top" style="width: 16rem; height: 15rem">
+                    <div class="card-body">
+                        <h6 class="card-title">{{ a.advt_name }}</h6>
+                        <p class="card-text">{{ a.advt_price }} KZT</p>
+                        <p class="card-text">{{ a.advt_location }}, Казахстан</p>
+                        <a href="#" class="btn btn-primary">Посмотреть</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        {% else %}
+            <h1>Не найдено</h1>
+        {% endif %}
+
+    </div>
+    {% if page_obj.has_other_pages %}
+    <nav class="list-pages">
+        <ul>
+            {% if page_obj.has_previous %}
+            <li class="page-num">
+                <a href="?page={{ page_obj.previous_page_number }}"> &lt;</a>
+            </li>
+            {% endif  %}
+            {% for p in page_obj.paginator.page_range %}
+            {% if page_obj.number == p %}
+            <li class="page-num page-num-selected"> {{ p }}</li>
+            {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2  %}
+            <li class="page-num">
+               <p><a href="?page={{ p }}">{{ p }}</a></p>
+            </li>
+            {% endif %}
+            {% endfor %}
+            {% if page_obj.has_next %}
+            <li class="page-num">
+                <a href="?page={{ page_obj.next_page_number }}"> &gt;</a>
+            </li>
+            {% endif  %}
+        </ul>
+    </nav>
+    {% endif %}
+</section>
+
+{% endblock %}

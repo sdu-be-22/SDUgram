@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block index %}
+
+<div class="div_background">
+    <div class="div_main">
+        {% include 'search.html' %}
+        <!-- carusel -->
+        {% include 'grid.html' %}
+        <div class="textValue" style="border-radius: 16px">
+            <h1 style="padding: 10px">Sdugram</h1>
+            <p style="padding: 50px">Крупнейший онлайн-сервис объявлений Казахстана
+Все онлайн-объявления Казахстана на OLX - здесь вы найдете то, что искали! Нажав на кнопку "Подать объявление", вы сможете разместить объявление на любую тематику легко и быстро.
+С помощью сервиса OLX вы сможете купить или продать из рук в руки практически все, что угодно.</p>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
