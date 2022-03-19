@@ -71,3 +71,35 @@ def thanks_page(request):
     return render(request, './thanks.html', {'name': name,
                                              'phone': phone}
                   )
+searched = 'null'
+
+def advt_detail_view(request):
+    advt_list = Advt.objects.all()
+    dict_obj = {'advt_list': advt_list}
+    global searched
+    if request.method == "POST":
+        dict_obj["searched"] = request.POST["searched"]
+        searched = request.POST["searched"]
+        array = []
+        for i in advt_list:
+            if i.advt_name == searched:
+                array.append(i)
+        if len(array) == 0:
+            dict_obj.pop("advt_list", None)
+
+        paginator = Paginator(array, 1)
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+        dict_obj["page_obj"] = page_obj
+    else:
+        array = []
+        for i in advt_list:
+            if i.advt_name == searched:
+                array.append(i)
+        if len(array) == 0:
+            dict_obj.pop("advt_list", None)
+        paginator = Paginator(array, 1)
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+        dict_obj["page_obj"] = page_obj
+    return render(request, './index.html', dict_obj)

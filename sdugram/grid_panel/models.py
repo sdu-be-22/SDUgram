@@ -8,6 +8,7 @@ class Advt(models.Model):
     advt_item_id = models.IntegerField(default=-1)
     advt_date_created = models.DateField(auto_now=True)
     advt_type = models.CharField(max_length=100, default="Другие")
+    advt_dt = models.DateTimeField(auto_now=True)
     advt_name = models.CharField(max_length=200, verbose_name='Advertisement name')
     advt_img = models.ImageField(upload_to='adver/')
     advt_price = models.CharField(max_length=100, verbose_name='Price')

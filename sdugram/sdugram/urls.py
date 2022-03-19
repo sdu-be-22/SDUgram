@@ -33,5 +33,6 @@ urlpatterns = [
     path('success', applyAd_view.success, name = 'success'),
     path('myProfile/', myProfile.views.main_page, name='myProfile'),
     path('help/', help_views.help_page),
+    path('search/', views.advt_detail_view, name="Search"),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

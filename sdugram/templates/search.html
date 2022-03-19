@@ -2,7 +2,7 @@
     {% load static %}
 <div class="search_div">
 
-    <form method="post" action="{% url 'Home' %}">
+    <form method="post" action="{% url 'Search' %}">
         {% csrf_token %}
         <input name="searched" type="text" class="find_input" placeholder="3 054 402 объявлений рядом"/>
         <input type="submit" class="btn_apply btn_search">Поиск</input>
