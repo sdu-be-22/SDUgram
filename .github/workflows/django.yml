@@ -28,3 +28,4 @@ jobs:
     - name: Run Tests
       run: |
         python sdugram/manage.py test
+        python sdugram/manage.py runserver
