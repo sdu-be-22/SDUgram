@@ -22,6 +22,21 @@
         {% else %}
             <h1 style="text-align:center;">Объявления</h1>
         {% endif %}
+        <div class="row" style="text-align: center; align-content: center; justify-content: center;">
+
+            {% for a in table %}
+
+            <div class="card col-md-3 m-1 card_c">
+                <img src="{{ a.img }}" class="card-img-top" style="width: 16rem; height: 15rem">
+                <div class="card-body">
+                    <h6 class="card-title">{{ a.alt }}</h6>
+                    <p class="card-text"></p>
+                    <p class="card-text">Казахстан</p>
+                    <a href="#" class="btn btn-primary">Посмотреть</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
         {% if advt_list %}
         <div class="row" style="text-align: center; align-content: center; justify-content: center;">
             {% for a in page_obj %}

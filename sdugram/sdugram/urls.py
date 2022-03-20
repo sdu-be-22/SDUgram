@@ -34,5 +34,7 @@ urlpatterns = [
     path('myProfile/', myProfile.views.main_page, name='myProfile'),
     path('help/', help_views.help_page),
     path('search/', views.advt_detail_view, name="Search"),
+    path('login/', include("signIN.urls"), name='login'),
+    path('register/', include("signUp.urls"), name='register'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
