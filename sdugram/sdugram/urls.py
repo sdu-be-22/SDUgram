@@ -22,6 +22,7 @@ from django.conf import settings
 from details import views as detail_view
 from applyAd import views as applyAd_view
 from help import views as help_views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.first_page, name="Home"),
@@ -36,5 +37,6 @@ urlpatterns = [
     path('search/', views.advt_detail_view, name="Search"),
     path('login/', include("signIN.urls"), name='login'),
     path('register/', include("signUp.urls"), name='register'),
+    path('updateUser/', myProfile.views.updateProfile, name='updateUser'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
