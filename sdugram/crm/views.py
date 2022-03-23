@@ -5,7 +5,7 @@ from cms.models import CmsSlider
 from price.models import PriceCard, PriceTable
 from telegrambot.sendMessage import sendTelegram
 from grid_panel.models import Advt
-from signUp.models import Account
+
 
 
 # Create your views here.
@@ -25,12 +25,6 @@ def first_page(request):
 
     first_name = "Login"
     last_name = ""
-
-    for i in Account.objects.all():
-        if i.status == "True":
-            first_name = i.firstName
-            last_name = i.lastName
-            break
 
     dict_obj = {'slider_list': slider_list,
                 # 'pc_1': pc_1,

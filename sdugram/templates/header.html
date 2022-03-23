@@ -14,10 +14,7 @@
         </ul>
     <form class="form-inline my-2 my-lg-0 pr-5">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">рус \ каз</a>
-            </li>
-
+            
             <li class="nav-item active">
                 <a class="nav-link" href="#"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16,2H8C4.691,2,2,4.691,2,8v12c0,0.552,0.448,1,1,1h13c3.309,0,6-2.691,6-6V8C22,4.691,19.309,2,16,2z M20,15 c0,2.206-1.794,4-4,4H4V8c0-2.206,1.794-4,4-4h8c2.206,0,4,1.794,4,4V15z"></path></svg>Сообщения</a>
             </li>
@@ -27,10 +24,10 @@
             </li>
 
         </ul>
-        <a href="{% url 'apply' %}"><button type="button" class="btn_apply">Подать объявление</button></a>
+        <a href="{% url 'apply' %}"><button type="button" class="btn_apply">Apply an ad</button></a>
         {% if request.user.is_authenticated %}
         <li><a href="{% url 'myProfile' %}">
-            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1.6em" width="1.6em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path></svg>{{ user.username }}</a>
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1.6em" width="1.7em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path></svg>{{ user.username }}</a>
            </li>
         <li> <a href="{% url 'logout' %}">Logout</a></li>
         {% else %}
