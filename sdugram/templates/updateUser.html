@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block index %}
-    <div class="row my-3 p-3">
+<div class="container" >
+    <div class="main-body" >
+    <div class="row">
         <img class="rounded-circle account-img" src="{{ user.profile.avatar.url }} " style="cursor: pointer;"/>
     </div>
     {% if user_form.errors %}
-        <div class="alert alert-danger alert-dismissible" role="alert">
+        <div class="alert alert-danger alert-dismissible"  role="alert">
             <div id="form_errors">
                 {% for key, value in user_form.errors.items %}
                     <strong>{{ value }}</strong>
@@ -40,4 +42,6 @@
             <button type="reset" class="btn btn-dark btn-lg">Reset</button>
         </form>
     </div>
+    </div>
+</div>
 {% endblock index %}
