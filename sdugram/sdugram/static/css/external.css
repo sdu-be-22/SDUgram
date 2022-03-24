@@ -154,8 +154,6 @@ svg {
     50% { background-position: 400% 0; }
     100% { background-position: 0 0; }
 }
-
-
 .phone-number {
   width: 200px;
   height: 40px;
@@ -225,44 +223,8 @@ svg {
   /*font-size: 2em;*/
   text-align: center;
   padding-bottom: 7%;
-<<<<<<< HEAD
 }
-#SignUpSection{
-    background-color:rgba(128, 128, 128, 0.808)
-}
-#mainContainer{
-    display: flex;
-    justify-content: center;
-    width:100%;
-    height: 900px;
-}
-#RegistrationBox{
-    display: flex;
-    flex-direction: column;
-    box-sizing:border-box;
-    background-color: hsla(204, 48%, 60%, 0.753);
-    border: rgba(255, 255, 255, 0.945) solid 10px;
-    width: 45%;
-    height: 90%;
-    margin-top: 10px;
-    padding-left:10px;
-    padding-right: 8px;
-}
-#Registration{
-    text-align: center;
-    font-size: 47px;
-    font-family: 'Playfair Display SC', serif;
-    font-weight: lighter;
-    margin-top: 20px;
-    margin-bottom: 12px;
-}
-#Welcome{
-    text-align: center;
-    font-size: 60px;
-    margin: 25px;
-    font-family: 'Parisienne', cursive;
-    font-weight: 500;
-}
+
 form>input{
     margin-top: 38px;
     height:32px;

@@ -6,20 +6,20 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="{% static 'external.css' %}" rel="stylesheet">
-      <link href="{% static 'signUp.css' %}" rel="stylesheet">
+    <link href="{% static 'css/external.css' %}" rel="stylesheet">
+    <link href="{% static 'css/signUp.css' %}" rel="stylesheet">
+     <link href="{% static 'css/list_page.css' %}" rel="stylesheet">
+      <link href="{% static 'css/footer.css' %}" rel="stylesheet">
 	 <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
      <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <meta name="csrf_token" content="{{ csrf_token }}">
-      <link href="{% static 'external.css' %}" rel="stylesheet">
-      <link href="{% static 'css/list_page.css' %}" rel="stylesheet">
-
-    <title>Простой сайт</title>
+    <title>SDUgram</title>
   </head>
   <body>
 {% include 'header.html' %}
@@ -33,29 +33,40 @@
 {% block index %}
 {% endblock %}
 
-{% block thanks %}
-{% endblock %}
 
-{% block detail %}
-{% endblock %}
-
-<footer>
-  		<div class="container">
-  			<nav class="navbar navbar-light bg-light container">
-			    <a class="navbar-brand logo-top" href="#">
-			    	<img src="{% static '/img/Logo2.png' %}" width="40" height="40" class="d-inline-block align-top" alt="" loading="lazy">
-
-			    </a>
-<!--	  			<div class="contact-top">-->
-<!--	                <a class="whatsapp-number" href="https://web.whatsapp.com/"></a>-->
-<!--	                <a class="telegram-number" href="https://t.me/"></a>-->
-<!--	              	<a class="phone-number text-dark" href="tel:+74957777777">-->
-<!--	              	<h5>+7(495)-777-77-77</h5></a>-->
-<!--      			</div>-->
-			</nav>
-  		</div>
-</footer>
+<div class="footer-dark">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="#">Web design</a></li>
+                            <li><a href="#">Development</a></li>
+                            <li><a href="#">Hosting</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="#">Company</a></li>
+                            <li><a href="#">Team</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 item text">
+                        <h3>SDUgram</h3>
+                        <p>SDUgram is the world’s leading classifieds platform in growth markets and is available in more than 50 countries and over 50 languages. OLX connects local people to buy, sell or exchange used goods and services by making it fast, easy and free for anyone to post a listing through their mobile phone or on the web.</p>
+                    </div>
+                    <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+                </div>
+                <p class="copyright">SDUgram © 2022</p>
+            </div>
+        </footer>
+</div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
