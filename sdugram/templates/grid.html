@@ -2,25 +2,25 @@
 {% block index %}
 
 <section>
-    <h1 style="text-align:center;">Главные рубрики</h1>
+    <h1 style="text-align:center;">Main categories</h1>
     <ul>
-        <li class="li_choose">Услуги</li>
-        <li class="li_choose">Недвижимость</li>
-        <li class="li_choose">Электроника</li>
-        <li class="li_choose">Дом и сад</li>
-        <li class="li_choose">Работа</li>
-        <li class="li_choose">Мода и стиль</li>
-        <li class="li_choose">Детский мир</li>
-        <li class="li_choose">Хобби, отдых и спорт</li>
-        <li class="li_choose">Транспорт</li>
-        <li class="li_choose">Животные</li>
-        <li class="li_choose">Отдам даром</li>
+        <li class="li_choose">Services </li>
+        <li class="li_choose">Real estate </li>
+        <li class="li_choose">Electronics</li>
+        <li class="li_choose">House and garden</li>
+        <li class="li_choose">Job</li>
+        <li class="li_choose">Fashion & Style</li>
+        <li class="li_choose">Child's world</li>
+        <li class="li_choose">Hobbies, recreation and sports </li>
+        <li class="li_choose">Transport</li>
+        <li class="li_choose">Animals</li>
+        <li class="li_choose">Giveaways</li>
     </ul>
     <div class="container container_grid">
         {% if searched %}
-            <h1 style="text-align:center;">Поиск: {{ searched }}</h1>
+            <h1 style="text-align:center;">Search: {{ searched }}</h1>
         {% else %}
-            <h1 style="text-align:center;">Объявления</h1>
+            <h1 style="text-align:center;">Advertisements</h1>
         {% endif %}
         <div class="row" style="text-align: center; align-content: center; justify-content: center;">
 
@@ -31,8 +31,8 @@
                 <div class="card-body">
                     <h6 class="card-title">{{ a.alt }}</h6>
                     <p class="card-text"></p>
-                    <p class="card-text">Казахстан</p>
-                    <a href="#" class="btn btn-primary">Посмотреть</a>
+                    <p class="card-text">KAZAKHSTAN</p>
+                    <a href="#" class="btn btn-primary">Show details</a>
                 </div>
             </div>
             {% endfor %}
@@ -45,8 +45,8 @@
                     <div class="card-body">
                         <h6 class="card-title">{{ a.advt_name }}</h6>
                         <p class="card-text">{{ a.advt_price }} KZT</p>
-                        <p class="card-text">{{ a.advt_location }}, Казахстан</p>
-                        <a href="#" class="btn btn-primary">Посмотреть</a>
+                        <p class="card-text">{{ a.advt_location }}, KAZAKHSTAN</p>
+                        <a href="#" class="btn btn-primary">Show details</a>
                     </div>
                 </div>
             {% endfor %}
