@@ -22,9 +22,11 @@ from django.conf import settings
 from details import views as detail_view
 from applyAd import views as applyAd_view
 from help import views as help_views
+from message import views as message
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('message/', include("message.urls")),
     path('', views.first_page, name="Home"),
     path('details/', detail_view.show_details),
     path('advertisements/', views.Adboard, name = 'advertisements'),
@@ -38,5 +40,4 @@ urlpatterns = [
     path('login/', include("signIN.urls"), name='login'),
     path('register/', include("signUp.urls"), name='register'),
     path('updateUser/', myProfile.views.updateProfile, name='updateUser'),
-
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
