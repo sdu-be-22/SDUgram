@@ -22,7 +22,7 @@ from django.conf import settings
 from details import views as detail_view
 from applyAd import views as applyAd_view
 from help import views as help_views
-
+from grid_panel import views as grid_panel
 from message import views as message
 
 from django.contrib.auth import views as auth_views
@@ -48,5 +48,7 @@ urlpatterns = [
     path('password_reset/done/',auth_views.PasswordResetDoneView.as_view(),name='password_reset_done'),
     path('reset/<uidb64>/<token>/',auth_views.PasswordResetConfirmView.as_view(),name='password_reset_confirm'),
     path('reset/done/',auth_views.PasswordResetCompleteView.as_view(),name='password_reset_complete'),
+    path('category/<int:cat_id>/', grid_panel.show_category, name='category'),
+    path('adver/<int:adver_id>/', detail_view.show_adver, name='adver')
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

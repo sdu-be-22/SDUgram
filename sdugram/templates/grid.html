@@ -4,17 +4,9 @@
 <section>
     <h1 style="text-align:center;">Main categories</h1>
     <ul>
-        <li class="li_choose">Services </li>
-        <li class="li_choose">Real estate </li>
-        <li class="li_choose">Electronics</li>
-        <li class="li_choose">House and garden</li>
-        <li class="li_choose">Job</li>
-        <li class="li_choose">Fashion & Style</li>
-        <li class="li_choose">Child's world</li>
-        <li class="li_choose">Hobbies, recreation and sports </li>
-        <li class="li_choose">Transport</li>
-        <li class="li_choose">Animals</li>
-        <li class="li_choose">Giveaways</li>
+        {% for cats in cat_list %}
+            <li  class="li_choose active" ><a style="color:black;" href="{{ cats.get_absolute_url }}">{{ cats.name }}</a></li>
+        {% endfor %}
     </ul>
     <div class="container container_grid">
         {% if searched %}
@@ -32,7 +24,7 @@
                     <h6 class="card-title">{{ a.alt }}</h6>
                     <p class="card-text"></p>
                     <p class="card-text">KAZAKHSTAN</p>
-                    <a href="#" class="btn btn-primary">Show details</a>
+                    <a href="{% url 'adver' a.id %}" class="btn btn-primary">Show details</a>
                 </div>
             </div>
             {% endfor %}
@@ -41,12 +33,12 @@
         <div class="row" style="text-align: center; align-content: center; justify-content: center;">
             {% for a in page_obj %}
                 <div class="card col-md-3 m-1 card_c">
-                    <img src="{{ a.advt_img.url  }}" class="card-img-top" style="width: 16rem; height: 15rem">
+                    <img src="{{ a.advt_img.url }}" class="card-img-top" style="width: 16rem; height: 15rem">
                     <div class="card-body">
                         <h6 class="card-title">{{ a.advt_name }}</h6>
                         <p class="card-text">{{ a.advt_price }} KZT</p>
                         <p class="card-text">{{ a.advt_location }}, KAZAKHSTAN</p>
-                        <a href="#" class="btn btn-primary">Show details</a>
+                        <a href="{{ a.get_absolute_url }}" class="btn btn-primary">Show details</a>
                     </div>
                 </div>
             {% endfor %}
