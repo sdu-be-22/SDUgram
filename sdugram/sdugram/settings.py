@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'signUp.apps.SignUpConfig',
     'message.apps.MessageConfig',
     'cms.apps.CmsConfig',
+    'feedbacks.apps.FeedbacksConfig',
     'crm.apps.CrmConfig',
     'django.contrib.admin',
     'django.contrib.auth',

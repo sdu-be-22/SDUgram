@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block index %}
+<div>
+    <h1>User Reviews</h1>
+    <h2>SDUgram</h2>
+    <h4>Reviews({{count}})</h4>
+    <div style="margin: 1% 1% 10% 10%;">
+        {% if list %}
+            {% for i in list%}
+                <div class="card">
+                    <div class="card-header">{{i.username}}</div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{i.name}}</h5>
+                        <p class="card-text">{{i.description}}</p>
+                        <a href="#" class="btn btn-primary">Like</a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h1 style="text-align:center">Empty</h1>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

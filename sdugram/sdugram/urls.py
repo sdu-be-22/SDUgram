@@ -32,6 +32,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('message/', include("message.urls")),
     path('', views.first_page, name="Home"),
+    path('feedbacks/', include('feedbacks.urls')),
     path('details/', detail_view.show_details),
     path('advertisements/', views.Adboard, name = 'advertisements'),
     path('thanks/', views.thanks_page, name = 'thanks_page'),
