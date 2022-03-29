@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block index %}
+<div style="background-color: cornflowerblue; padding: 140px;">
+    <section>
+        <form action="{% url 'thanks' %}" method="POST">
+            {% csrf_token %}
+            {{form}}
+            <button class="btn_apply" type="submit">Submit comment</button>
+        </form>
+    </section>
+</div>
+{% endblock %}

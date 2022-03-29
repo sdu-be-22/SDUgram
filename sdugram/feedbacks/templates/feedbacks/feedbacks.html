@@ -1,18 +1,19 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block index %}
-<div>
+<div style="background-color: cornflowerblue; padding: 10%; color: white">
     <h1>User Reviews</h1>
     <h2>SDUgram</h2>
     <h4>Reviews({{count}})</h4>
-    <div style="margin: 1% 1% 10% 10%;">
+    <a href="{% url 'add_feedback' %}"><button type="button" class="btn_apply">Leave feedback</button></a>
+    <div style="margin: 1% 1% 10% 10%; color: black">
         {% if list %}
             {% for i in list%}
                 <div class="card">
                     <div class="card-header">{{i.username}}</div>
                     <div class="card-body">
                         <h5 class="card-title">{{i.name}}</h5>
-                        <p class="card-text">{{i.description}}</p>
+                        <p class="card-text">{{i.caption}}</p>
                         <a href="#" class="btn btn-primary">Like</a>
                     </div>
                 </div>
@@ -22,4 +23,6 @@
         {% endif %}
     </div>
 </div>
+
+
 {% endblock %}
