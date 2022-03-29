@@ -5,7 +5,11 @@
     <h1 style="text-align:center;">Main categories</h1>
     <ul>
         {% for cats in cat_list %}
-            <li  class="li_choose active" ><a style="color:black;" href="{{ cats.get_absolute_url }}">{{ cats.name }}</a></li>
+            {% if selected == cats.pk %}
+            <li  class="li_choose selected" ><a style="color:blue;" href="{{ cats.get_absolute_url }}">{{ cats.name }}</a></li>
+            {% else %}
+            <li  class="li_choose" ><a style="color:black;" href="{{ cats.get_absolute_url }}">{{ cats.name }}</a></li>
+            {% endif %}
         {% endfor %}
     </ul>
     <div class="container container_grid">

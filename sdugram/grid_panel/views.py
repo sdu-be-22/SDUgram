@@ -15,6 +15,7 @@ def show_category(request, cat_id):
         'page_obj': page_obj,
         'advt_list': advt_list,
         'cat_list': cat_list,
+        'selected': cat_id,
     }
     return render(request, './index.html', dict_obj)
 
