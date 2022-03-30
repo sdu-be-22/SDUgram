@@ -29,14 +29,14 @@ urlpatterns = [
     path('details/', detail_view.show_details),
     path('advertisements/', views.Adboard, name = 'advertisements'),
     path('thanks/', views.thanks_page, name = 'thanks_page'),
-    path('signUp/', include("signUp.urls")),
+    path('signUp/', include("signUp.urls"), name='signUp'),
     path('apply/', applyAd_view.image_view, name='apply'),
     path('success', applyAd_view.success, name = 'success'),
-    path('myProfile/', myProfile.views.main_page, name='myProfile'),
+    path('myProfile/', include("myProfile.urls")),
     path('help/', help_views.help_page),
     path('search/', views.advt_detail_view, name="Search"),
     path('login/', include("signIN.urls"), name='login'),
     path('register/', include("signUp.urls"), name='register'),
-    path('updateUser/', myProfile.views.updateProfile, name='updateUser'),
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
