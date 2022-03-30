@@ -10,7 +10,7 @@ Class-based views
     1. Add an import:  from other_app.views import Home
     2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
 Including another URLconf
-    1. Import the include() function: from django.urls import include, path
+    1. Import the include() function: from django   .urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
@@ -22,21 +22,34 @@ from django.conf import settings
 from details import views as detail_view
 from applyAd import views as applyAd_view
 from help import views as help_views
+from grid_panel import views as grid_panel
+from message import views as message
+
+from django.contrib.auth import views as auth_views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('message/', include("message.urls")),
     path('', views.first_page, name="Home"),
+    path('feedbacks/', include('feedbacks.urls'), name="feedback"),
     path('details/', detail_view.show_details),
     path('advertisements/', views.Adboard, name = 'advertisements'),
     path('thanks/', views.thanks_page, name = 'thanks_page'),
-    path('signUp/', include("signUp.urls"), name='signUp'),
+    path('signUp/', include("signUp.urls")),
     path('apply/', applyAd_view.image_view, name='apply'),
     path('success', applyAd_view.success, name = 'success'),
-    path('myProfile/', include("myProfile.urls")),
+    path('myProfile/', myProfile.views.main_page, name='myProfile'),
     path('help/', help_views.help_page),
     path('search/', views.advt_detail_view, name="Search"),
     path('login/', include("signIN.urls"), name='login'),
     path('register/', include("signUp.urls"), name='register'),
-
+    path('updateUser/', myProfile.views.updateProfile, name='updateUser'),
+    path('password_reset/',auth_views.PasswordResetView.as_view(),name='password_reset'),
+    path('password_reset/done/',auth_views.PasswordResetDoneView.as_view(),name='password_reset_done'),
+    path('reset/<uidb64>/<token>/',auth_views.PasswordResetConfirmView.as_view(),name='password_reset_confirm'),
+    path('reset/done/',auth_views.PasswordResetCompleteView.as_view(),name='password_reset_complete'),
+    path('category/<int:cat_id>/', grid_panel.show_category, name='category'),
+    path('adver/<int:adver_id>/', detail_view.show_adver, name='adver')
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block index %}
+<div class="container" >
+    <div class="main-body" >
+    <div class="row">
+        <img class="rounded-circle account-img" src="{{ user.profile.avatar.url }} " style="cursor: pointer;"/>
+    </div>
+
+    <div class="form-content">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label class="small mb-1">Username:</label>
+                            {{ user_form.username }}
+                        <label class="small mb-1">Email:</label>
+                            {{ user_form.email }}
+                    </div>
+                    <div class="form-group">
+                        <a href="#">Change Password</a>
+                        <hr>
+                        <label class="small mb-1">Change Avatar:</label>
+                        {{ profile_form.avatar }}
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <button type="submit" class="btn btn-dark btn-lg">Save Changes</button>
+            <button type="reset" class="btn btn-dark btn-lg">Reset</button>
+        </form>
+    </div>
+    </div>
+</div>
+{% endblock index %}

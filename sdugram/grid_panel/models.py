@@ -2,6 +2,8 @@ from django.db import models
 
 
 # Create your models here.
+from django.urls import reverse
+
 
 class Advt(models.Model):
     advt_host_id = models.IntegerField(default=1)
@@ -17,6 +19,7 @@ class Advt(models.Model):
     advt_favourite = models.IntegerField(default=0)
     advt_views = models.IntegerField(default=0)
     advt_location = models.CharField(max_length=30, default="Алматы")
+    advt_cat = models.ForeignKey('Category', on_delete=models.PROTECT, null=True)
 
     def __str__(self):
         return self.advt_name
@@ -24,3 +27,15 @@ class Advt(models.Model):
     class Meta:
         verbose_name = "Advertisement"
         verbose_name_plural = "Advertisements"
+
+    def get_absolute_url(self):
+        return reverse('adver', kwargs={'adver_id': self.pk})
+
+class Category(models.Model):
+    name = models.CharField(max_length=100, db_index=True)
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('category', kwargs={'cat_id': self.pk})

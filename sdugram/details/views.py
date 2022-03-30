@@ -1,7 +1,8 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from crm.models import Order
 from cms.models import CmsSlider
-
+from grid_panel.models import Advt, Category
 # Create your views here.
 from details.forms import OrderForm
 
@@ -23,3 +24,10 @@ def thanks_page(request):
     element.save()
     return render(request, './thanks.html', {'name': name,
                                              'phone': phone})
+
+def show_adver(request, adver_id):
+    advt_list = Advt.objects.filter(pk=adver_id)
+    dict = {
+        'advt_list': advt_list
+    }
+    return render(request, 'details/adver_full_info.html', dict)
