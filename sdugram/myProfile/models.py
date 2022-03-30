@@ -8,7 +8,7 @@ class Profile(models.Model):
     ]
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     address = models.CharField(blank=True, max_length=100)
-    phone = models.CharField(max_length=13, null=True)
-    gender = models.CharField(choices=gender_choices, max_length=7, default='Male')
+    phone = models.CharField(blank=True, max_length=13)
+    gender = models.CharField(blank=True, choices=gender_choices, max_length=7)
     instagram_account = models.CharField(blank=True, max_length=50)
-    avatar = models.ImageField(blank = True, default='profile_images/default_avatar.png', upload_to='profile_images')
+    avatar = models.ImageField(blank=True, default='profile_images/default_avatar.png', upload_to='media/profile_images/')

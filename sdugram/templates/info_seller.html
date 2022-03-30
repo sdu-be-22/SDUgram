@@ -1,20 +1,20 @@
 {% load static %}
 {% block info_seller %}
 <section class="ml-5 mt-2">
-    <h3>Пользователь</h3>
+    <h3>User</h3>
     <div class="d-flex p-2">
         <img src="{% static './img/default_avatar.png' %}" width="100" height="100" alt="...">
         <div class="ml-3">
             <h4>{{ first_name }}</h4>
-            <p>Онлайн в {{ was_online }}</p>
+            <p>Last online was {{ was_online }}</p>
         </div>
     </div>
-    <button class="btn btn-primary btn-lg btn-block">Все объявления автора</button>
+    <button class="btn btn-primary btn-lg btn-block">All advertisements of the author</button>
     <div class="d-flex p-2">
-        <button class="btn btn-outline-success">Показать телефон</button>
-        <button class="btn btn-outline-warning ml-4">Сообщение</button>
+        <button class="btn btn-outline-success">Show phone</button>
+        <button class="btn btn-outline-warning ml-4">Message</button>
     </div>
-    <h3 class="mt-2">Местоположение</h3>
+    <h3 class="mt-2">Geolocation</h3>
     <div class="d-flex p-2">
         <div>
             <p>{{ location }}</p>
