@@ -32,7 +32,10 @@
                     <h6 class="card-title">{{ a.alt }}</h6>
                     <p class="card-text"></p>
                     <p class="card-text">KAZAKHSTAN</p>
+
                     <a href="#" class="btn btn-primary">Show details</a>
+
+
                 </div>
             </div>
             {% endfor %}
@@ -46,7 +49,15 @@
                         <h6 class="card-title">{{ a.advt_name }}</h6>
                         <p class="card-text">{{ a.advt_price }} KZT</p>
                         <p class="card-text">{{ a.advt_location }}, KAZAKHSTAN</p>
-                        <a href="#" class="btn btn-primary">Show details</a>
+
+
+
+                        <form method="POST"  action="{% url 'add_fav' a.pk %}">
+                             {% csrf_token %}
+
+                             <button name='favbtn'>add to favorites</button>
+                        </form>
+                    <a href="#" class="btn btn-primary">Show details</a>
                     </div>
                 </div>
             {% endfor %}

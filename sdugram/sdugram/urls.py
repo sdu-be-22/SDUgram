@@ -14,9 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.template.defaulttags import url
 from django.urls import path, include
 import myProfile.views
 from crm import views
+from cms import views as cms_views
 from django.conf.urls.static import static
 from django.conf import settings
 from details import views as detail_view
@@ -43,6 +45,8 @@ urlpatterns = [
     path('password_reset/done/',auth_views.PasswordResetDoneView.as_view(),name='password_reset_done'),
     path('reset/<uidb64>/<token>/',auth_views.PasswordResetConfirmView.as_view(),name='password_reset_confirm'),
     path('reset/done/',auth_views.PasswordResetCompleteView.as_view(),name='password_reset_complete'),
-
+    path('favorite_post/',cms_views.favorite_post,name="favorite_post"),
+    path('favorites/' ,cms_views.post_favorite_list,name="post_favorite_list"),
+    path('add_fav<int:id>', cms_views.add_fav, name='add_fav')
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

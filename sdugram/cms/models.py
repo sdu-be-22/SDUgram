@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 
@@ -9,9 +10,13 @@ class CmsSlider(models.Model):
     cms_text = models.CharField(max_length=200, verbose_name='Text')
     cms_css = models.CharField(max_length=200, null=True, default='-', verbose_name='CSS class')
 
+
+
     def __str__(self):
         return self.cms_title
 
     class Meta:
         verbose_name = "Slide"
         verbose_name_plural = "Slidies"
+
+
