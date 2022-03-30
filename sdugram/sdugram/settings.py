@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'signIN.apps.SigninConfig',
     'header.apps.HeaderConfig',
     'signUp.apps.SignUpConfig',
+    'message.apps.MessageConfig',
     'cms.apps.CmsConfig',
+    'feedbacks.apps.FeedbacksConfig',
     'crm.apps.CrmConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -147,10 +149,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
-EMAIL_HOST_USER = '200103394@stu.sdu.edu.kz'
-EMAIL_HOST_PASSWORD = 'moldirkazbek2002'
-# EMAIL_HOST_USER = 'sdugram@gmail.com'
-# EMAIL_HOST_PASSWORD = 'backendproject'
+EMAIL_HOST_USER = 'sdugram@gmail.com'
+EMAIL_HOST_PASSWORD = 'backendproject'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 

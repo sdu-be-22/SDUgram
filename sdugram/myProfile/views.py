@@ -7,6 +7,9 @@ from .forms import UpdateUserForm, UpdateProfileForm
 # Create your views here.
 def main_page(request):
     return render(request, './myProfile.html')
+
+
+
 @login_required
 def updateProfile(request):
     if request.method == 'POST':

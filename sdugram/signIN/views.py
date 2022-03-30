@@ -14,7 +14,7 @@ def login(request):
             messages.success(request, f'Welcome {username}! You are successfully logged in!')
             return redirect('Home')
         else:
-            messages.warning(request,'Incorrect password or username!')
+            messages.warning(request, 'Incorrect password or username!')
             return redirect('login')
     else:
         form = UserAuthenticationForm()

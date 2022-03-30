@@ -10,7 +10,7 @@ Class-based views
     1. Add an import:  from other_app.views import Home
     2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
 Including another URLconf
-    1. Import the include() function: from django.urls import include, path
+    1. Import the include() function: from django   .urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
@@ -24,11 +24,17 @@ from django.conf import settings
 from details import views as detail_view
 from applyAd import views as applyAd_view
 from help import views as help_views
+from grid_panel import views as grid_panel
+from message import views as message
+
 from django.contrib.auth import views as auth_views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('message/', include("message.urls")),
     path('', views.first_page, name="Home"),
+    path('feedbacks/', include('feedbacks.urls'), name="feedback"),
     path('details/', detail_view.show_details),
     path('advertisements/', views.Adboard, name = 'advertisements'),
     path('thanks/', views.thanks_page, name = 'thanks_page'),
@@ -47,6 +53,8 @@ urlpatterns = [
     path('reset/done/',auth_views.PasswordResetCompleteView.as_view(),name='password_reset_complete'),
     path('favorite_post/',cms_views.favorite_post,name="favorite_post"),
     path('favorites/' ,cms_views.post_favorite_list,name="post_favorite_list"),
-    path('add_fav<int:id>', cms_views.add_fav, name='add_fav')
+    path('add_fav<int:id>', cms_views.add_fav, name='add_fav'),
+    path('category/<int:cat_id>/', grid_panel.show_category, name='category'),
+    path('adver/<int:adver_id>/', detail_view.show_adver, name='adver')
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
