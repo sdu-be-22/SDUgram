@@ -41,7 +41,7 @@ urlpatterns = [
     path('signUp/', include("signUp.urls")),
     path('apply/', applyAd_view.image_view, name='apply'),
     path('success', applyAd_view.success, name = 'success'),
-    path('myProfile/', myProfile.views.main_page, name='myProfile'),
+    path('myProfile/', include("myProfile.urls"), name='myProfile'),
     path('help/', help_views.help_page),
     path('search/', views.advt_detail_view, name="Search"),
     path('login/', include("signIN.urls"), name='login'),
