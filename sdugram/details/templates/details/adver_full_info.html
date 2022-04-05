@@ -46,7 +46,7 @@
 
     <div style="background-color: cornflowerblue; padding: 140px;">
         <section>
-            <form action="{% url 'thanks_id' %}" method="POST">
+            <form action="{% url 'thanks_id' adver_id %}" method="POST">
                 {% csrf_token %}
                 {{form}}
                 <button class="btn_apply" style="margin-top: 30px;" type="submit">Submit comment</button>
