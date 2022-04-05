@@ -43,5 +43,33 @@
         </div>
     {% endfor %}
     </div>
+
+    <div style="background-color: cornflowerblue; padding: 140px;">
+        <section>
+            <form action="{% url 'thanks_id' %}" method="POST">
+                {% csrf_token %}
+                {{form}}
+                <button class="btn_apply" style="margin-top: 30px;" type="submit">Submit comment</button>
+            </form>
+        </section>
+    </div>
+
+
+    <div style="margin: 1% 1% 10% 10%; color: black">
+        {% if list %}
+            {% for i in list%}
+                <div class="card">
+                    <div class="card-header">{{i.user}}</div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{i.name}}</h5>
+                        <p class="card-text">{{i.caption}}</p>
+                        <a href="#" class="btn btn-primary">Like</a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h1 style="text-align:center">Empty</h1>
+        {% endif %}
+    </div>
 </section>
 {% endblock %}

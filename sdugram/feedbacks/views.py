@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import FeedbackModel
+from .models import FeedbackItemModel, FeedbackModel
 from .forms import FeedbackForm
 
 
@@ -18,5 +18,12 @@ def thanks(request):
   title = request.POST['title']
   description = request.POST['description']
   model = FeedbackModel(name=title, caption=description, user=request.user)
+  model.save()
+  return render(request, 'feedbacks/thanks.html')
+
+
+def thanks(request, adver_id):
+  description = request.POST['description']
+  model = FeedbackItemModel(caption=description, user=request.user, item=adver_id)
   model.save()
   return render(request, 'feedbacks/thanks.html')

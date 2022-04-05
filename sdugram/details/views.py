@@ -2,9 +2,11 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from crm.models import Order
 from cms.models import CmsSlider
+from feedbacks.models import FeedbackItemModel
 from grid_panel.models import Advt, Category
 # Create your views here.
 from details.forms import OrderForm
+from feedbacks.forms import FeedBackItemForm
 
 
 def show_details(request):
@@ -27,7 +29,12 @@ def thanks_page(request):
 
 def show_adver(request, adver_id):
     advt_list = Advt.objects.filter(pk=adver_id)
+    form = FeedBackItemForm()
+
     dict = {
-        'advt_list': advt_list
+        'advt_list': advt_list,
+        'form': form,
+        "list": FeedbackItemModel.objects.filter(item=adver_id),
+        'adver_id': adver_id
     }
     return render(request, 'details/adver_full_info.html', dict)

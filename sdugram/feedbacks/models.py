@@ -12,4 +12,10 @@ class FeedbackModel(models.Model):
     date_posted = models.DateTimeField(default = timezone.now)
     like = models.IntegerField(default=0)
 
+class FeedbackItemModel(models.Model):
+    user = models.CharField(max_length=40, default="Guest")
+    caption = models.TextField(default="Empty")
+    date_posted = models.DateTimeField(default = timezone.now)
+    item = models.IntegerField(default=-1)
+    
     
