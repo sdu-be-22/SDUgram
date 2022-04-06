@@ -13,7 +13,7 @@ class Advt(models.Model):
     advt_dt = models.DateTimeField(auto_now=True)
     advt_name = models.CharField(max_length=200, verbose_name='Advertisement name')
     advt_img = models.ImageField(upload_to='adver/')
-    advt_price = models.CharField(max_length=100, verbose_name='Price')
+    advt_price = models.IntegerField(max_length=100, verbose_name='Price')
     advt_link = models.CharField(max_length=200, null=True)
     advt_description = models.CharField(max_length=1000, default="")
     advt_favourite = models.IntegerField(default=0)
@@ -33,6 +33,7 @@ class Advt(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=100, db_index=True)
+    image = models.ImageField(upload_to='static/img/category', null=True)
 
     def __str__(self):
         return self.name

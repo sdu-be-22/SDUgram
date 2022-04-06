@@ -55,6 +55,10 @@ urlpatterns = [
     path('favorites/' ,cms_views.post_favorite_list,name="post_favorite_list"),
     path('add_fav<int:id>', cms_views.add_fav, name='add_fav'),
     path('category/<int:cat_id>/', grid_panel.show_category, name='category'),
+    path('today/', grid_panel.show_today, name='today'),
+    path('oder_by_date/', grid_panel.order_by_date, name="orderbydate"),
+    path('price_max', grid_panel.order_by_priceMax, name="orderbymax"),
+    path('price_min', grid_panel.order_by_priceMin, name="orderbymin"),
     path('adver/<int:adver_id>/', detail_view.show_adver, name='adver')
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
