@@ -1,28 +1,21 @@
 from django.db import models
-
-
-# Create your models here.
 from django.urls import reverse
-
+from django.contrib.auth.models import User
+# Create your models here.
 
 class Advt(models.Model):
-    advt_host_id = models.IntegerField(default=1)
-    advt_item_id = models.IntegerField(default=-1)
-    advt_date_created = models.DateField(auto_now=True)
-    advt_type = models.CharField(max_length=100, default="Другие")
-    advt_dt = models.DateTimeField(auto_now=True)
-    advt_name = models.CharField(max_length=200, verbose_name='Advertisement name')
-    advt_img = models.ImageField(upload_to='adver/')
-    advt_price = models.IntegerField(max_length=100, verbose_name='Price')
-    advt_link = models.CharField(max_length=200, null=True)
-    advt_description = models.CharField(max_length=1000, default="")
-    advt_favourite = models.IntegerField(default=0)
-    advt_views = models.IntegerField(default=0)
-    advt_location = models.CharField(max_length=30, default="Алматы")
-    advt_cat = models.ForeignKey('Category', on_delete=models.PROTECT, null=True)
+    advertisement_user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    advertisement_date_created = models.DateField(auto_now=True, null = True)
+    advertisement_name = models.CharField(max_length=200, verbose_name='Advertisement name')
+    advertisement_image = models.ImageField(upload_to='media/adver/')
+    advertisement_price = models.IntegerField(verbose_name='Price')
+    advertisement_description = models.TextField(max_length=1000, default="")
+    advertisement_favourites = models.IntegerField(default=0)
+    advertisement_location = models.CharField(max_length=30, default="Алматы")
+    advertisement_category = models.ForeignKey('Category', on_delete=models.PROTECT, null=True)
 
     def __str__(self):
-        return self.advt_name
+        return self.advertisement_name
 
     class Meta:
         verbose_name = "Advertisement"

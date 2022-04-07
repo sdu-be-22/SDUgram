@@ -1,9 +1,9 @@
 from django import forms
 from .models import *
+from grid_panel.models import *
 
-class AdForm(forms.ModelForm):
-    # name = forms.CharField(max_length=200, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    # phone = forms.CharField(max_length=200, widget=forms.TextInput(attrs={'class': 'form-control'}))
+class AdApplicationForm(forms.ModelForm):
+
     class Meta:
-        model = Ad
-        fields = ['name', 'phone', 'description', 'location', 'ad_img']
+        model = Advt
+        fields = ['advertisement_name', 'advertisement_description', 'advertisement_price', 'advertisement_location', 'advertisement_category', 'advertisement_image']
