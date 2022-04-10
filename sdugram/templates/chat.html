@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block index %}
+
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span class="glyphicon glyphicon-comment"></span> Chat
+
+                </div>
+                <div class="panel-body">
+                    <ul class="chat">
+                        {% for m in emails %}
+                        <li class="left clearfix"><span class="chat-img pull-left">
+
+                        </span>
+                            <div class="chat-body clearfix">
+                                <div class="header">
+                                    <strong class="primary-font">{{ m.from_user }} </strong> <small class="pull-right text-muted">
+                                        <span class="glyphicon glyphicon-time"></span> {{ m.get_date }}</small>
+                                </div>
+                                <h4>{{ m.subject }}</h4>
+                                <p>
+                                   {{ m.message }}
+                                </p>
+                            </div>
+                        </li>
+                        {% endfor %}
+
+                    </ul>
+                </div>
+                <div class="panel-footer">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <form class="input-group-btn" enctype="multipart/form-data" method = "post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                            <button href = "{% url 'chat' %}" class = "btn btn-primary mt-2" type="submit" style="font-size:22px;font-family: 'League Spartan', sans-serif;">Upload</button>
+                        </form>
+                        </span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

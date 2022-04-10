@@ -8,7 +8,7 @@ from grid_panel.models import Advt, Category
 # Create your views here.
 
 def show_category(request, cat_id):
-    advt_list = Advt.objects.filter(advt_cat_id=cat_id)
+    advt_list = Advt.objects.filter(advertisement_category=cat_id)
     cat_list = Category.objects.all()
     paginator = Paginator(advt_list, 3)
     page_number = request.GET.get('page')

@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'crispy_forms',
+    'chat.apps.ChatConfig',
     'help.apps.HelpConfig',
     'myProfile.apps.MyProfileConfig',
     'applyAd.apps.ApplyadConfig',
