@@ -2,13 +2,13 @@
  {% block index %}
        <div class="row" style="text-align: center; align-content: center; justify-content: center;">
             {% for a in favorite_posts %}
-                {% if a.advt_favourite == 1 %}
+                {% if a.advertisement_favourites == 1 %}
                 <div class="card col-md-3 m-1 card_c">
-                    <img src="{{ a.advt_img.url  }}" class="card-img-top" style="width: 16rem; height: 15rem">
+                    <img src="{{ a.advertisement_image.url  }}" class="card-img-top" style="width: 16rem; height: 15rem">
                     <div class="card-body">
-                        <h6 class="card-title">{{ a.advt_name }}</h6>
-                        <p class="card-text">{{ a.advt_price }} KZT</p>
-                        <p class="card-text">{{ a.advt_location }}, KAZAKHSTAN</p>
+                        <h6 class="card-title">{{ a.advertisement_name }}</h6>
+                        <p class="card-text">{{ a.advertisement_price }} KZT</p>
+                        <p class="card-text">{{ a.advertisement_location }}, KAZAKHSTAN</p>
                         <a href="#" class="btn btn-primary">Show details</a>
                     </div>
                 </div>
