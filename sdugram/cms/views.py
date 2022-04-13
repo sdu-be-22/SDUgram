@@ -50,3 +50,30 @@ def favorite_post(request,id):
     else:
         post.favorite.add(request.user)
     return HttpResponseRedirect(post.get_absolute_url())
+
+def count_posts(request):
+    services=Advt.objects.filter(advertisement_category=1).count()
+    job = Advt.objects.filter(advertisement_category=2).count()
+    transport =  Advt.objects.filter(advertisement_category=3).count()
+    real_estate =  Advt.objects.filter(advertisement_category=4).count()
+    fashion= Advt.objects.filter(advertisement_category=5).count()
+    animals= Advt.objects.filter(advertisement_category=6).count()
+    electronics= Advt.objects.filter(advertisement_category=7).count()
+    childworld= Advt.objects.filter(advertisement_category=8).count()
+    giveaways = Advt.objects.filter(advertisement_category=9).count()
+    houseandgarden= Advt.objects.filter(advertisement_category=10).count()
+    sports= Advt.objects.filter(advertisement_category=11).count()
+
+    ers={'services':services,
+        'job':job,
+        'transport':transport,
+        'real_estate':real_estate,
+        'fashion':fashion,
+        'animals':animals,
+        'electronics':electronics,
+        'childworld':childworld,
+        'giveaways':giveaways,
+        'houseandgarden':houseandgarden,
+        'sports':sports }
+
+    return render(request,'category_info.html',ers)
