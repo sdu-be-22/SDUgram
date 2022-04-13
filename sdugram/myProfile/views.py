@@ -5,6 +5,8 @@ from .models import *
 from .forms import *
 
 # Create your views here.
+def show_my_advertisements(request):
+    return render(request, 'myProfile.html')
 def main_page(request):
     return render(request, 'myProfile.html')
 @login_required
