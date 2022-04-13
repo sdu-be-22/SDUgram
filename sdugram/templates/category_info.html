@@ -1,8 +1,23 @@
- {% extends 'base.html' %}
+ {% extends 'base.html'  %}
  {% block index %}
-   <div class="row" style="text-align: center; align-content: center; justify-content: center;">
 
-    <h1>Services:{{ services }}</h1>
-     <h2></h2>
-   </div>
+     <div class="row" style="text-align: center; align-content: center; justify-content:center;
+     background-color:#C8F8F6;">
+
+         <div class="card col-md-3 m-1 card_c">
+             <h1>Statictics</h1>
+          <p>Services[{{ services }}]</p>
+          <p>Job[{{job}}]</p>
+              <p>Transport[{{transport}}]</p>
+          <p>Real estate[{{real_estate}}]</p>
+          <p>Fashion & Style[{{fashion}}]</p>
+          <p>Animals[{{animals}}]</p>
+          <p>Electronics[{{electronics}}]</p>
+          <p>Child's world[{{childworld}}]</p>
+              <p>Giveaways[{{giveaways}}]</p>
+              <p>House and garden[{{houseandgarden}}]</p>
+               <p>Sports[{{sports}}]</p>
+          </div>
+     </div>
+
  {% endblock %}

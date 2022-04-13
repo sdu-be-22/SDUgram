@@ -62,6 +62,6 @@ urlpatterns = [
     path('price_min', grid_panel.order_by_priceMin, name="orderbymin"),
     path('adver/<int:adver_id>/', detail_view.show_adver, name='adver'),
     path('chat/',chat_views.message_page, name='chat'),
-    path('count_posts/',cms_views.count_posts,name='cposts')
+    path('category_info/',cms_views.count_posts,name='cposts')
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
