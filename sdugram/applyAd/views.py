@@ -11,12 +11,14 @@ import telebot
 # Create your views here.
 def image_view(request):
     if request.method == 'POST':
-        form = AdApplicationForm(request.POST or None, request.FILES, instance=request.user)
+        form = AdApplicationForm(request.POST, request.FILES)
 
         if form.is_valid():
-            user = form.save()
+            advt = form.save(False)
+            advt.advertisement_user = request.user
+            advt.save()
             # return redirect('success')
-            messages.success(request, f'Your advertisement is successfully uploaded!{user.username}')
+            messages.success(request, f'Your advertisement is successfully uploaded! {advt.advertisement_user.username}')
             return redirect('Home')
 
     else:

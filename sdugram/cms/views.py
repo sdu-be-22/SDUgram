@@ -26,7 +26,6 @@ def post_favorite_list(request):
     if request.GET.get('favbtn'):
         fpost=favorite_posts.get(advt_host_id=id)
         fpost.advertisement_favourites == 1
-
         fpost.save()
 
     return render(request, 'favorites.html',context)
@@ -37,7 +36,7 @@ def add_fav(request, id):
     if temp.advertisement_favourites == 1:
         temp.advertisement_favourites = 0
     else:
-        temp.advertisement_favourites = 1
+        temp.advertisement_favourites ==1
     temp.save()
     return redirect('Home')
 

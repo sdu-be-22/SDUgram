@@ -19,7 +19,7 @@ def show_category(request, cat_id):
         'cat_list': cat_list,
         'selected': cat_id,
     }
-    return render(request, './index.html', dict_obj)
+    return render(request, 'index.html', dict_obj)
 
 def show_today(request):
 
@@ -33,7 +33,7 @@ def show_today(request):
         'advt_list': advt_list,
         'cat_list': cat_list
     }
-    return render(request, './index.html', dict_obj)
+    return render(request, 'index.html', dict_obj)
 
 def order_by_date(request):
     advt_list = Advt.objects.all().order_by('-advt_dt')
@@ -46,10 +46,10 @@ def order_by_date(request):
         'advt_list': advt_list,
         'cat_list': cat_list
     }
-    return render(request, './index.html', dict_obj)
+    return render(request, 'index.html', dict_obj)
 
 def order_by_priceMax(request):
-    advt_list = Advt.objects.all().order_by('-advt_price')
+    advt_list = Advt.objects.all().order_by('-advertisement_price')
     cat_list = Category.objects.all()
     paginator = Paginator(advt_list, 10)
     page_number = request.GET.get('page')
@@ -59,10 +59,10 @@ def order_by_priceMax(request):
         'advt_list': advt_list,
         'cat_list': cat_list
     }
-    return render(request, './index.html', dict_obj)
+    return render(request, 'index.html', dict_obj)
 
 def order_by_priceMin(request):
-    advt_list = Advt.objects.all().order_by('advt_price')
+    advt_list = Advt.objects.all().order_by('advertisement_price')
     cat_list = Category.objects.all()
     paginator = Paginator(advt_list, 10)
     page_number = request.GET.get('page')
@@ -72,5 +72,5 @@ def order_by_priceMin(request):
         'advt_list': advt_list,
         'cat_list': cat_list
     }
-    return render(request, './index.html', dict_obj)
+    return render(request, 'index.html', dict_obj)
 

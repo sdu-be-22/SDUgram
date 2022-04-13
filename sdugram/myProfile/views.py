@@ -2,11 +2,13 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import *
+from grid_panel.models import *
 from .forms import *
 
 # Create your views here.
 def show_my_advertisements(request):
-    return render(request, 'myProfile.html')
+    advertisements = Advt.objects.filter(advertisement_user=request.user)
+    return render(request, 'MyAdvertisements.html', {'advt_list': advertisements})
 def main_page(request):
     return render(request, 'myProfile.html')
 @login_required
