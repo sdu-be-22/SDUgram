@@ -15,8 +15,8 @@
 
 _Django app **Sdugram** for the advertisements made by the **Bari-bir** team._
 ## Members
-- [Zhumagaliyev Alibi](https://github.com/jumagaliev1) 200103311
-- [Baimurat Zhandos](https://github.com/Zhandos-Hello-World) 200103398
+- [Alibi Zhumagaliyev](https://github.com/jumagaliev1) 200103311
+- [Zhandos Baimurat](https://github.com/Zhandos-Hello-World) 200103398
 - [Moldir Kazbek](https://github.com/MoldirKazbek) 200103394
 - [Dina Berikkyzy](https://github.com/dinaberikkyzy1) 200103045
 
