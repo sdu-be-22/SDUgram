@@ -65,24 +65,25 @@ def advt_detail_view(request):
         dict_obj["searched"] = request.POST["searched"]
         searched = request.POST["searched"]
         array = []
-        for i in advt_list:
-            if i.advt_name == searched:
-                array.append(i)
-        if len(array) == 0:
-            dict_obj.pop("advt_list", None)
-
-        paginator = Paginator(array, 1)
+        # for i in advt_list:
+        #     if i.advt_name == searched:
+        #         array.append(i)
+        # if len(array) == 0:
+        #     dict_obj.pop("advt_list", None)
+        ser = Advt.objects.filter(advertisement_name__icontains=searched)
+        paginator = Paginator(ser, 3)
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
         dict_obj["page_obj"] = page_obj
     else:
         array = []
-        for i in advt_list:
-            if i.advt_name == searched:
-                array.append(i)
-        if len(array) == 0:
-            dict_obj.pop("advt_list", None)
-        paginator = Paginator(array, 1)
+        # for i in advt_list:
+        #     if i.advt_name == searched:
+        #         array.append(i)
+        # if len(array) == 0:
+        #     dict_obj.pop("advt_list", None)
+        ser = Advt.objects.filter(advertisement_name__icontains=searched)
+        paginator = Paginator(ser, 3)
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
         dict_obj["page_obj"] = page_obj

@@ -11,19 +11,15 @@ class Messages(models.Model):
     from_user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     subject = models.CharField(max_length=200, verbose_name='Subject')
     message = models.TextField(max_length=1000, default="", verbose_name='Message')
-    date = models.DateTimeField(default=datetime.now())
-
+    date = models.DateTimeField(default=datetime.today())
     def __str__(self):
         return self.subject
 
     def get_date(self):
-        print(datetime.now())
-        print('------------------')
-        print(self.date)
-        time = datetime.now()
+        time = datetime.today()
         if self.date.day == time.day:
-            if self.date.hour == time.hour:
-                return str(time.minute - self.date.minute) + " minutes ago"
+            if self.date.hour + 1 == time.hour or self.date.hour == time.hour:
+                return str(abs(time.minute - self.date.minute)) + " minutes ago"
             return str(time.hour - self.date.hour) + " hours ago"
         else:
             if self.date.month == time.month:
