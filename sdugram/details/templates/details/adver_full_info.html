@@ -3,22 +3,21 @@
 {% block index %}
 <section class="m-4">
     <div class="div_main">
-    {% for a in advt_list %}
 <!--    <img src="{{ advt_list.advt_img.url }}" alt="" class="img-thumbnail">-->
     <div class="row">
         <div class="col-md-8">
-            <img src="{{ a.advt_img.url }}" alt="" class="img-thumbnail" style="width: 60rem; height: 40rem">
+            <img src="{{ advt.advertisement_image.url }}" alt="" class="img-thumbnail" style="width: 60rem; height: 40rem">
         </div>
         <div class="col-md-4">
             <h3>Пользователь</h3>
             <div class="d-flex p-2">
                 <img src="{% static './img/default_avatar.png' %}" width="100" height="100" alt="...">
                 <div class="ml-3">
-                    <h4>{{ user.first_name }}</h4>
+                    <h4>{{ advt.advertisement_user}}</h4>
                     <p>Онлайн в {{ was_online }}</p>
                 </div>
             </div>
-            <button class="btn btn-primary btn-lg btn-block">Все объявления автора</button>
+            <a href="{% url 'aboutAuthor' 7 %}"><button class="btn btn-primary btn-lg btn-block">Все объявления автора</button></a>
             <div class="d-flex p-2">
                 <button class="btn btn-outline-success">Показать телефон</button>
                 <button class="btn btn-outline-warning ml-4">Сообщение</button>
@@ -26,22 +25,21 @@
             <h3 class="mt-2">Местоположение</h3>
             <div class="d-flex p-2">
                 <div>
-                    <p>{{ location }}</p>
+                    <p>{{ advt.advertisement_location }}</p>
                 </div>
             </div>
         </div>
     </div>
         <div class="row">
             <div class="col-md-12">
-                <h1>{{ a.advt_name }}</h1>
-                <h2>{{ a.advt_price }} KZT</h2>
+                <h1>{{ advt.advertisement_name }}</h1>
+                <h2>{{ advt.advertisement_price }} KZT</h2>
                 <h1>Description:</h1>
                 <div class="col-md-7">
-                <p>{{ a.advt_description }}</p>
+                <p>{{ advt.advertisement_description }}</p>
                 </div>
             </div>
         </div>
-    {% endfor %}
     </div>
 
     <div style="background-color: cornflowerblue; padding: 140px;">
