@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block index %}
-<div style="background-color: cornflowerblue; padding: 10%; color: white">
+<div style="background-color:#C8F8F6; padding: 10%; color: black;">
+    <div style="margin: 7% 10% 1% 10%;">
     <h1>User Reviews</h1>
     <h2>SDUgram</h2>
     <h4>Reviews({{count}})</h4>
     <a href="{% url 'add_feedback' %}"><button type="button" class="btn_apply">Leave feedback</button></a>
-    <div style="margin: 1% 1% 10% 10%; color: black">
+    </div>
+    <div style="margin: 7% 10% 1% 10%; color: black">
         {% if list %}
             {% for i in list%}
                 <div class="card">
