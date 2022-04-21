@@ -26,6 +26,7 @@ from applyAd import views as applyAd_view
 from help import views as help_views
 from grid_panel import views as grid_panel
 from chat import views as chat_views
+from favorite import views as fav_views
 from message import views as message
 from django.contrib.auth import views as auth_views
 from aboutAuthor import views as about_view
@@ -62,6 +63,8 @@ urlpatterns = [
     path('price_min', grid_panel.order_by_priceMin, name="orderbymin"),
     path('adver/<int:adver_id>/', detail_view.show_adver, name='adver'),
     path('chat/',chat_views.message_page, name='chat'),
-    path('detailsAboutAuthor/<int:id>', about_view.aboutAuthor , name='aboutAuthor')
+    path('category_info/',cms_views.count_posts,name='cposts'),
+    path('add_favorite/<int:advt>/', fav_views.add_favorite, name='add_fav'),
+    path('detailsAboutAuthor/<int:id>', about_view.aboutAuthor , name='aboutAuthor'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
