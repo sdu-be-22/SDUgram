@@ -2,7 +2,6 @@
  {% block index %}
        <div class="row" style="text-align: center; align-content: center; justify-content: center;">
             {% for a in favorite_posts %}
-                {% if a.advertisement_favourites == 1 %}
                 <div class="card col-md-3 m-1 card_c">
                     <img src="{{ a.advertisement_image.url  }}" class="card-img-top" style="width: 16rem; height: 15rem">
                     <div class="card-body">
@@ -17,7 +16,6 @@
                         <a href="#" class="btn btn-primary">Show details</a>
                     </div>
                 </div>
-                {% endif %}
             {% endfor %}
         </div>
 
