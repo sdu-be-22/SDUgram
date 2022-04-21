@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
+from grid_panel.models import Advt
 class Profile(models.Model):
     gender_choices = [
         ('Male', 'Male'),
@@ -12,3 +13,4 @@ class Profile(models.Model):
     gender = models.CharField(blank=True, choices=gender_choices, max_length=7)
     instagram_account = models.CharField(blank=True, max_length=50)
     avatar = models.ImageField(blank=True, default='profile_images/default_avatar.png', upload_to='media/profile_images/')
+    fav_adver = models.ManyToManyField(Advt)

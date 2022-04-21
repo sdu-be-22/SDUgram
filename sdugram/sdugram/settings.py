@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'favorite.apps.FavoriteConfig',
     'crispy_forms',
     'chat.apps.ChatConfig',
     'help.apps.HelpConfig',
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
     'cms.apps.CmsConfig',
     'feedbacks.apps.FeedbacksConfig',
     'crm.apps.CrmConfig',
+    'aboutAuthor.apps.AboutauthorConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -123,11 +125,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Etc/GMT+5'
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)

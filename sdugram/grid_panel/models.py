@@ -13,6 +13,7 @@ class Advt(models.Model):
     advertisement_favourites = models.IntegerField(default=0)
     advertisement_location = models.CharField(max_length=30, default="Алматы")
     advertisement_category = models.ForeignKey('Category', on_delete=models.PROTECT, null=True)
+    advertisement_view = models.IntegerField(default=0)
 
     def __str__(self):
         return self.advertisement_name

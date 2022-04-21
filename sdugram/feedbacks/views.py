@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import FeedbackItemModel, FeedbackModel
 from .forms import FeedbackForm
-
+from django.contrib import messages
 
 # Create your views here.
 def feedbacks(request):
@@ -19,11 +19,12 @@ def thanks(request):
   description = request.POST['description']
   model = FeedbackModel(name=title, caption=description, user=request.user)
   model.save()
-  return render(request, 'feedbacks/thanks.html')
+  messages.success(request, f'Thanks for feedback! {request.user.username}')
+  return redirect('comments')
 
 
-def thanks(request, adver_id):
+def thanks_id(request, advertisement_id):
   description = request.POST['description']
-  model = FeedbackItemModel(caption=description, user=request.user, item=adver_id)
+  model = FeedbackItemModel(caption=description, user=request.user, item=advertisement_id)
   model.save()
   return render(request, 'feedbacks/thanks.html')

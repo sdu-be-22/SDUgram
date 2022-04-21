@@ -28,13 +28,19 @@ def thanks_page(request):
                                              'phone': phone})
 
 def show_adver(request, adver_id):
-    advt_list = Advt.objects.filter(pk=adver_id)
+    for i in Advt.objects.filter(pk=adver_id):
+        i.advertisement_view = i.advertisement_view + 1
+        i.save()
+   
+    advt = Advt.objects.filter(pk=adver_id).first
     form = FeedBackItemForm()
 
+
     dict = {
-        'advt_list': advt_list,
+        'advt': advt,
         'form': form,
         "list": FeedbackItemModel.objects.filter(item=adver_id),
         'adver_id': adver_id
     }
+
     return render(request, 'details/adver_full_info.html', dict)

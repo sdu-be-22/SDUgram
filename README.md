@@ -14,7 +14,14 @@
 </p>
 
 _Django app **Sdugram** for the advertisements made by the **Bari-bir** team._
+## Members
+- [Alibi Zhumagaliyev](https://github.com/jumagaliev1) 200103311
+- [Zhandos Baimurat](https://github.com/Zhandos-Hello-World) 200103398
+- [Moldir Kazbek](https://github.com/MoldirKazbek) 200103394
+- [Dina Berikkyzy](https://github.com/dinaberikkyzy1) 200103045
 
-# Screen
-![image](https://user-images.githubusercontent.com/71185943/159052681-11e870e0-ba19-480d-bd92-9f3f87346291.png)
-![image](https://user-images.githubusercontent.com/71185943/159052738-254b1b39-751b-4ec2-9f90-d873210b661c.png)
+## Screen
+![image](https://user-images.githubusercontent.com/71185943/163298991-8e01e1c5-7b62-4dd5-af91-2fc0db9edf34.png)
+![image](https://user-images.githubusercontent.com/71185943/163299022-36653725-b835-4eac-846e-eac01c96e000.png)
+![image](https://user-images.githubusercontent.com/71185943/163299091-63eaed76-30c2-4641-8832-16e9ed615ad4.png)
+
