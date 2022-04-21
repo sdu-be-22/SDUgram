@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'cms.apps.CmsConfig',
     'feedbacks.apps.FeedbacksConfig',
     'crm.apps.CrmConfig',
+    'aboutAuthor.apps.AboutauthorConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
