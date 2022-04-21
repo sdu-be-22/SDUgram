@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block index %}
+<div class="py-5" style="background-color:#B3DEE5">
+    <h3 class="mb-2" style="text-align:center"> Change your advertisement:</h3>
+<div class="container">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <button type="submit" class = "btn btn-primary">Save changes</button>
+    </form>
+</div>
+</div>
+{% endblock %}

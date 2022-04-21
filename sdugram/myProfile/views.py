@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .models import *
 from grid_panel.models import *
 from .forms import *
+from applyAd.forms import *
 
 # Create your views here.
 def show_my_advertisements(request):
@@ -34,3 +35,19 @@ def updateProfile(request):
         profile_form = UpdateProfileForm(instance=request.user.profile)
 
     return render(request, 'updateUser.html', {'user_form': user_form, 'profile_form': profile_form})
+def editAdver(request, adver_id):
+    adver = Advt.objects.get(pk=adver_id)
+    if request.method == "POST":
+        edit_adver = AdApplicationForm(request.POST, request.FILES, instance=adver)
+        if edit_adver.is_valid():
+            edit_adver.save()
+            messages.success(request, f'Advertisement {adver.advertisement_name} is updated!')
+            return redirect('myAdvertisements')
+    elif request.GET.get('remove'):
+        adver.delete()
+        return redirect('myAdvertisements')
+    else:
+        advForm = AdApplicationForm(instance=adver)
+        return render(request, 'editAdver.html',{'form':advForm})
+
+
