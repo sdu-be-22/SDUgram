@@ -14,8 +14,8 @@ def first_page(request):
     paginator = Paginator(advt_list, 3)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    for i in advt_list:
-        print(i)
+    # for i in advt_list:
+    #     print(i)
     price_table = PriceTable.objects.all()
     form = OrderForm()
 

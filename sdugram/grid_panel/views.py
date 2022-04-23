@@ -7,8 +7,9 @@ from grid_panel.models import Advt, Category
 
 # Create your views here.
 
-def show_category(request, cat_id):
-    advt_list = Advt.objects.filter(advertisement_category=cat_id)
+def show_category(request, cat_slug):
+    category = Category.objects.get(slug=cat_slug)
+    advt_list = Advt.objects.filter(advertisement_category=category.pk)
     cat_list = Category.objects.all()
     paginator = Paginator(advt_list, 3)
     page_number = request.GET.get('page')
@@ -17,7 +18,7 @@ def show_category(request, cat_id):
         'page_obj': page_obj,
         'advt_list': advt_list,
         'cat_list': cat_list,
-        'selected': cat_id,
+        'selected': cat_slug,
     }
     return render(request, 'index.html', dict_obj)
 

@@ -1,5 +1,4 @@
-from datetime import datetime
-
+from django.utils import timezone
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -11,12 +10,12 @@ class Messages(models.Model):
     from_user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     subject = models.CharField(max_length=200, verbose_name='Subject')
     message = models.TextField(max_length=1000, default="", verbose_name='Message')
-    date = models.DateTimeField(default=datetime.today())
+    date = models.DateTimeField(default=timezone.now)
     def __str__(self):
         return self.subject
 
     def get_date(self):
-        time = datetime.today()
+        time = timezone.now()
         if self.date.day == time.day:
             if self.date.hour + 1 == time.hour or self.date.hour == time.hour:
                 return str(abs(time.minute - self.date.minute)) + " minutes ago"
