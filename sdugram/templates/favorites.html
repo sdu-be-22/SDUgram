@@ -7,7 +7,7 @@
     <h2 style = "text-align:center;" class = "py-5">Your favorite advertisements </h2>
  </div>
  {% for a in favorite_posts %}
-<div class="row m-4 card_c " style="padding:10px; background-color:#B3DEE5">
+<div class="row m-4 card_c {{ a.pk }}" id="row m-4 card_c {{ a.pk }}" style="padding:10px; background-color:#B3DEE5">
         <div class="col-md-2">
             <a href="{{ a.get_absolute_url }}"><img src="{{ a.advertisement_image.url }}"  class="card-img-top" style="width: 16rem; height: 14rem;border:solid 8px #FAE6B1;"></a>
         </div>
@@ -20,7 +20,7 @@
             <p class="card-text" style="font-size:20px;font-weight:bold;">{{ a.advertisement_price }} KZT</p>
             <form  method="POST" >
              {% csrf_token %}
-                 <button class="bt" onclick=postdata(this) value="{{ a.pk }}" type="button" style="border:0; background:transparent;">
+                 <button class="bt" onclick=remove_elm(this) value="{{ a.pk }}" type="button" style="border:0; background:transparent;">
                             {% if a in request.user.profile.fav_adver.all %}
                                 <img id="a{{ a.pk }}" src="{% static 'img/icons8-favorite-48.png' %}" alt="">
                             {% else %}

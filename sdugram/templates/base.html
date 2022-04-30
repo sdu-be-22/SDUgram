@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <link rel="stylesheet" href="{% static 'css/dark-mode.css' %}">
     <meta name="csrf_token" content="{{ csrf_token }}">
     <title>SDUgram</title>
 
@@ -73,56 +74,15 @@
     </footer>
 </div>
 </div>
-    <script type="text/javascript">
-            $(".form_class").on('submit', function(event) {
-               event.preventDefault();
-               var formData = new FormData(this);
-               var userbooks = 'fff';
-               $.ajax({
-                   type: "POST",
-                   url: "{% url 'add_fav' 16 %}",
-                   data: formData,
-                   datatype:'json',
-               });
-            });
-           function change(link) {
-                console.log('#someButton was clicked');
-                var elem = document.getElementById("a11");
-                console.log(elem);
-                elem.src = "/static/img/icons8-favorite-48.png";
-                console.log(elem.style);
-           }
-           function postdata(link){
 
-                var elem = document.getElementById("a" + $(link).val());
-                if (elem.src === "http://127.0.0.1:8000/static/img/icons8-favorite-48.png") {
-                    elem.src = "/static/img/icons8-favorite-50.png";
-                }
-                else {
-                    elem.src = "/static/img/icons8-favorite-48.png";
-                }
-                $.ajax({
-                   type: "POST",
-                   url: "{% url 'add_fav' 16 %}",
-                   data:{
-                        'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val(),
-                         'id': $(link).val(),
-                   },
-                   datatype:'json',
-                   success: function(data) {
-                     if (data['success'])
-                        alert("successfully added to favorites")
-                   }
-               });
-
-           }
-    </script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/dark-mode-switch.js' %}"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
   </body>
 </html>

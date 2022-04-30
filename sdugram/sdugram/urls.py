@@ -55,7 +55,6 @@ urlpatterns = [
     path('reset/done/',auth_views.PasswordResetCompleteView.as_view(),name='password_reset_complete'),
     path('favorite_post/',cms_views.favorite_post,name="favorite_post"),
     path('favorites/' ,cms_views.post_favorite_list,name="post_favorite_list"),
-    path('add_fav<int:id>', cms_views.add_fav, name='add_fav'),
     path('category/<slug:cat_slug>/', grid_panel.show_category, name='category'),
     path('today/', grid_panel.show_today, name='today'),
     path('oder_by_date/', grid_panel.order_by_date, name="orderbydate"),
@@ -64,7 +63,7 @@ urlpatterns = [
     path('adver/<int:adver_id>/', detail_view.show_adver, name='adver'),
     path('chat/',chat_views.message_page, name='chat'),
     path('category_info/',cms_views.count_posts,name='cposts'),
-    path('add_favorite/<int:advt>/', fav_views.add_favorite, name='add_fav'),
+    path('add_favorite/', fav_views.add_favorite, name='add_fav'),
     path('detailsAboutAuthor/<int:id>', about_view.aboutAuthor , name='aboutAuthor'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

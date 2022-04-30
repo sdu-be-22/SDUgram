@@ -10,6 +10,8 @@ import telebot
 
 # Create your views here.
 def image_view(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
     if request.method == 'POST':
         form = AdApplicationForm(request.POST, request.FILES)
 
@@ -17,7 +19,6 @@ def image_view(request):
             advt = form.save(False)
             advt.advertisement_user = request.user
             advt.save()
-            # return redirect('success')
             messages.success(request, f'Your advertisement is successfully uploaded! {advt.advertisement_user.username}')
             return redirect('Home')
 
@@ -32,11 +33,5 @@ def success(request):
         size = len(Ads)
         Ads = Advt.objects.get(pk=size)
         profile =Profile.objects.get(user=request.user)
-        sendTelegram(tg_name=Ads.advertisement_name, tg_phone=profile.phone,tg_desc=Ads.advertisement_description, tg_location=Ads.advertisement_location, tg_img=Ads.advertisement_image)
-
-    # element = Order(order_name = name, order_phone = phone)
-    # element.save()
-    # img = 'order_img/' + img;
     return render(request, 'thanks.html', {'ads': Ads})
-   # return HttpResponse('Successfully uploaded to Moderation')
 

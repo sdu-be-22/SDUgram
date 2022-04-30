@@ -24,7 +24,7 @@ def show_category(request, cat_slug):
 
 def show_today(request):
 
-    advt_list = Advt.objects.filter(advt_dt__gte=datetime.date.today())
+    advt_list = Advt.objects.filter(advertisement_date_created__gte=datetime.date.today())
     cat_list = Category.objects.all()
     paginator = Paginator(advt_list, 10)
     page_number = request.GET.get('page')
@@ -37,7 +37,7 @@ def show_today(request):
     return render(request, 'index.html', dict_obj)
 
 def order_by_date(request):
-    advt_list = Advt.objects.all().order_by('-advt_dt')
+    advt_list = Advt.objects.all().order_by('-advertisement_date_created')
     cat_list = Category.objects.all()
     paginator = Paginator(advt_list, 10)
     page_number = request.GET.get('page')

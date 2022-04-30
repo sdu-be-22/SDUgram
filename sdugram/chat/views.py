@@ -8,7 +8,10 @@ from django.contrib import messages
 # Create your views here.
 
 def message_page(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
     emails = Messages.objects.filter(to_user = request.user)
+
     sysdate = datetime.now()
     if request.method == 'POST':
         from_user = request.user
