@@ -9,26 +9,26 @@
             <img src="{{ advt.advertisement_image.url }}" alt="" class="img-thumbnail" style="width: 60rem; height: 40rem">
         </div>
         <div class="col-md-4">
-            <h3>Пользователь</h3>
+            <h3>User</h3>
             <div class="d-flex p-2">
                 <img src="{% static './img/default_avatar.png' %}" width="100" height="100" alt="...">
                 <div class="ml-3">
                     <h4>{{ advt.advertisement_user}}</h4>
-                    <p>Онлайн в {{ was_online }}</p>
+                    <p>Was online {{ was_online }}</p>
                 </div>
             </div>
-            <a href="{% url 'aboutAuthor' 7 %}"><button class="btn btn-primary btn-lg btn-block">Все объявления автора</button></a>
+            <a href="{% url 'aboutAuthor' 7 %}"><button class="btn btn-primary btn-lg btn-block">All advertisements from author</button></a>
             <div class="d-flex p-2">
-                <button class="btn btn-outline-success">Показать телефон</button>
-                <button class="btn btn-outline-warning ml-4">Сообщение</button>
+                <button class="btn btn-outline-success">Show phone</button>
+                <button class="btn btn-outline-warning ml-4">Message</button>
             </div>
-            <h3 class="mt-2">Местоположение</h3>
+            <h3 class="mt-2">Location</h3>
             <div class="d-flex p-2">
                 <div>
                     <p>{{ advt.advertisement_location }}</p>
                 </div>
             </div>
-            <h3 class="mt-2">Просмотров</h3>
+            <h3 class="mt-2">Views</h3>
             <div class="d-flex p-2">
                 <div>
                     <p>{{ advt.advertisement_view }}</p>
@@ -48,7 +48,7 @@
         </div>
     </div>
 
-    <div style="background-color: cornflowerblue; padding: 140px;">
+    <div style="padding: 10px;">
         <section>
             <form action="{% url 'thanks_id' adver_id %}" method="POST">
                 {% csrf_token %}
