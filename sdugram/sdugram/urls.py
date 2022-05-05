@@ -62,6 +62,7 @@ urlpatterns = [
     path('price_min', grid_panel.order_by_priceMin, name="orderbymin"),
     path('adver/<int:adver_id>/', detail_view.show_adver, name='adver'),
     path('chat/',chat_views.message_page, name='chat'),
+    path('chat/<int:user_id>',chat_views.message_page, name='chat'),
     path('category_info/',cms_views.count_posts,name='cposts'),
     path('add_favorite/', fav_views.add_favorite, name='add_fav'),
     path('detailsAboutAuthor/<int:id>', about_view.aboutAuthor , name='aboutAuthor'),

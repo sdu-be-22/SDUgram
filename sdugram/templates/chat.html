@@ -4,55 +4,160 @@
 {% block index %}
 
 
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!--<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
+<!--<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>-->
+<!--<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>-->
 <!------ Include the above in your HEAD tag ---------->
+<section >
+  <div class="container py-5">
 
-<div class="container">
     <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <span class="glyphicon glyphicon-comment"></span> Chat
+      <div class="col-md-12">
 
-                </div>
-                <div class="panel-body">
-                    <ul class="chat">
-                        {% for m in emails %}
-                        <li class="left clearfix"><span class="chat-img pull-left">
+        <div class="card" id="chat3" style="border-radius: 15px;">
+          <div class="card-body">
 
-                        </span>
-                            <div class="chat-body clearfix">
-                                <div class="header">
-                                    <strong class="primary-font">{{ m.from_user }} </strong> <small class="pull-right text-muted">
-                                        <span class="glyphicon glyphicon-time"></span> {{ m.get_date }}</small>
-                                </div>
-                                <h4>{{ m.subject }}</h4>
-                                <p>
-                                   {{ m.message }}
-                                </p>
+            <div class="row">
+              <div class="col-md-6 col-lg-5 col-xl-4 mb-4 mb-md-0">
+
+                <div class="p-3">
+
+                  <div class="input-group rounded mb-3">
+                    <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+                      aria-describedby="search-addon" />
+                    <span class="input-group-text border-0" id="search-addon">
+                      <i class="fas fa-search"></i>
+                    </span>
+                  </div>
+
+                  <div data-mdb-perfect-scrollbar="true" style="position: relative; height: 400px">
+                    <ul class="list-unstyled mb-0">
+                        {% for user in users %}
+                        <li class="p-2 border-bottom">
+                        <a href="{% url 'chat' user.pk %}" class="d-flex justify-content-between">
+                          <div class="d-flex flex-row">
+                            <div>
+                              <img
+                                src="{{ user.profile.avatar.url }}"
+                                alt="avatar" class="d-flex align-self-center me-3" width="70" height="70" style="border-radius:50%; margin-right:9px;">
+                              <span class="badge bg-success badge-dot"></span>
                             </div>
-                        </li>
+                            <div class="pt-1">
+                              <p class="text-muted">{{ user.username }}</p>
+                              <p class="small text-muted">{{ user.first_name }}</p>
+                            </div>
+                          </div>
+                          <div class="pt-1">
+                            <p class="small text-muted mb-1">{{ user.get_date }}</p>
+                            <span class="badge bg-danger rounded-pill float-end">3</span>
+                          </div>
+                        </a>
+                      </li>
                         {% endfor %}
-
                     </ul>
+                  </div>
+
                 </div>
-                <div class="panel-footer">
-                    <div class="input-group">
-                        <span class="input-group-btn">
-                            <form class="input-group-btn" enctype="multipart/form-data" method = "post" enctype="multipart/form-data">
-                                {% csrf_token %}
-                                {{ form.as_p }}
-                            <button href = "{% url 'chat' %}" class = "btn btn-primary mt-2" type="submit" style="font-size:22px;font-family: 'League Spartan', sans-serif;">Upload</button>
-                        </form>
-                        </span>
+
+              </div>
+
+              <div class="col-md-6 col-lg-7 col-xl-8">
+
+                <div class="pt-3 pe-3" data-mdb-perfect-scrollbar="true"
+                  style="position: relative; height: 400px; overflow-y: scroll;">
+                    {% for email in emails %}
+                  <div class="d-flex flex-row justify-content-end">
+                    <div>
+                        <h6>{{ email.from_user.username }}</h6>
+                      <p class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">{{ email.message }}</p>
+                      <p class="small me-3 mb-3 rounded-3 text-muted">{{ email.get_date }}</p>
                     </div>
+                    <img src="{{ email.from_user.profile.avatar.url }}"
+                      alt="avatar 1" style="width: 55px; height: 55px; border-radius:50%; margin-top:20px; margin-left: 9px;">
+                  </div>
+                    {% endfor %}
                 </div>
+
+                <div class="text-muted d-flex justify-content-start align-items-center pe-3 pt-3 mt-2">
+<!--                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp"-->
+<!--                    alt="avatar 3" style="width: 40px; height: 100%;">-->
+<!--                  <input type="text" class="form-control form-control-lg" id="exampleFormControlInput2"-->
+<!--                    placeholder="Type message">-->
+                    <form class="input-group-btn" enctype="multipart/form-data" method = "post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>To user: {{ form.to_user }}</p>
+                                <p>Subject: {{ form.subject }}</p>
+                                <button href = "{% url 'chat' %}" class = "btn btn-primary mt-2" type="submit" style="font-size:18px;font-family: 'League Spartan', sans-serif;">Send</button>
+
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{ form.message }}</p>
+                            </div>
+                        </div>
+
+                             </form>
+                  <a class="ms-1 text-muted" href="#!"><i class="fas fa-paperclip"></i></a>
+                  <a class="ms-3 text-muted" href="#!"><i class="fas fa-smile"></i></a>
+                  <a class="ms-3" href="#!"><i class="fas fa-paper-plane"></i></a>
+                </div>
+
+              </div>
             </div>
+
+          </div>
         </div>
+
+      </div>
     </div>
-</div>
+
+  </div>
+</section>
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--        <div class="col-md-12">-->
+<!--            <div class="panel panel-primary">-->
+<!--                <div class="panel-heading">-->
+<!--                    <span class="glyphicon glyphicon-comment"></span> Chat-->
+
+<!--                </div>-->
+<!--                <div class="panel-body">-->
+<!--                    <ul class="chat">-->
+<!--                        {% for m in emails %}-->
+<!--                        <li class="left clearfix"><span class="chat-img pull-left">-->
+
+<!--                        </span>-->
+<!--                            <div class="chat-body clearfix">-->
+<!--                                <div class="header">-->
+<!--                                    <strong class="primary-font">{{ m.from_user }} </strong> <small class="pull-right text-muted">-->
+<!--                                        <span class="glyphicon glyphicon-time"></span> {{ m.get_date }}</small>-->
+<!--                                </div>-->
+<!--                                <h4>{{ m.subject }}</h4>-->
+<!--                                <p>-->
+<!--                                   {{ m.message }}-->
+<!--                                </p>-->
+<!--                            </div>-->
+<!--                        </li>-->
+<!--                        {% endfor %}-->
+
+<!--                    </ul>-->
+<!--                </div>-->
+<!--                <div class="panel-footer">-->
+<!--                    <div class="input-group">-->
+<!--                        <span class="input-group-btn">-->
+<!--                            <form class="input-group-btn" enctype="multipart/form-data" method = "post" enctype="multipart/form-data">-->
+<!--                                {% csrf_token %}-->
+<!--                                {{ form.as_p }}-->
+<!--                            <button href = "{% url 'chat' %}" class = "btn btn-primary mt-2" type="submit" style="font-size:22px;font-family: 'League Spartan', sans-serif;">Upload</button>-->
+<!--                        </form>-->
+<!--                        </span>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 
 

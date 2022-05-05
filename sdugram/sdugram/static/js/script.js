@@ -55,3 +55,23 @@ function remove_elm(link){
         }
     }
 }
+
+document.getElementById('form-select').addEventListener('change', function() {
+  val = $( "#form-select" ).val();
+
+  console.log(val)
+  if(val === '1') {
+    window.location.replace('/today','_blank');
+    }
+  if(val === '2') {
+    window.location.replace('/oder_by_date', '_blank');
+  }
+  if (val === '3') {
+    window.location.replace('/price_max', '_blank');
+  }
+  if (val === '4') {
+    window.location.replace('/price_min', '_blank')
+  }
+});
+
+

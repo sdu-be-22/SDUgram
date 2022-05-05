@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from PIL import Image
 # Create your models here.
 from grid_panel.models import Advt
 class Profile(models.Model):
@@ -14,3 +15,14 @@ class Profile(models.Model):
     instagram_account = models.CharField(blank=True, max_length=50)
     avatar = models.ImageField(blank=True, default='profile_images/default_avatar.png', upload_to='media/profile_images/')
     fav_adver = models.ManyToManyField(Advt)
+
+
+def save(self, *args, **kwargs):
+    super().save()
+
+    img = Image.open(self.avatar.path)
+
+    if img.height > 100 or img.width > 100:
+        new_img = (100, 100)
+        img.thumbnail(new_img)
+        img.save(self.avatar.path)

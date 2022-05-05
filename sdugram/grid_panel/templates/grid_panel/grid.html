@@ -22,6 +22,21 @@
             Filter by:
           </a>
         </p>
+        <select class="form-select" id="form-select"" aria-label="Default select example">
+            <option id="selected-form" selected>Open this select menu</option>
+            <option value="1"><a href="{% url 'today' %}" style="text-align:center" >
+                    Only today
+          </a></option>
+            <option value="2"><a href="{% url 'orderbydate' %}" style="text-align:center" >
+                    Order by date
+          </a></option>
+            <option value="3"><a href="{% url 'orderbymax' %}" style="text-align:center" >
+                    Order by price max
+          </a></option>
+            <option value="4"><a style="text-align:center" >
+                    Order by price min
+          </a></option>
+        </select>
         <div class="collapse" id="collapseExample">
           <div class="card card-body">
               <a href="{% url 'today' %}" style="text-align:center" >
