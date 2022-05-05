@@ -36,7 +36,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('message/', include("message.urls")),
     path('', views.first_page, name="Home"),
-    path('feedbacks/', include('feedbacks.urls'), name="feedback"),
+    path('feedbacks/', include('feedbacks.urls'), name='feedback'),
     path('details/', detail_view.show_details),
     path('advertisements/', views.Adboard, name = 'advertisements'),
     path('thanks/', views.thanks_page, name = 'thanks_page'),
@@ -66,5 +66,5 @@ urlpatterns = [
     path('category_info/',cms_views.count_posts,name='cposts'),
     path('add_favorite/', fav_views.add_favorite, name='add_fav'),
     path('detailsAboutAuthor/<int:id>', about_view.aboutAuthor , name='aboutAuthor'),
-
+    path('team/',cms_views.teampage)
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
