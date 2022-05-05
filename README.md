@@ -24,4 +24,5 @@ _Django app **Sdugram** for the advertisements made by the **Bari-bir** team._
 ![image](https://user-images.githubusercontent.com/71185943/163298991-8e01e1c5-7b62-4dd5-af91-2fc0db9edf34.png)
 ![image](https://user-images.githubusercontent.com/71185943/163299022-36653725-b835-4eac-846e-eac01c96e000.png)
 ![image](https://user-images.githubusercontent.com/71185943/163299091-63eaed76-30c2-4641-8832-16e9ed615ad4.png)
-
+## Gif
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/71185943/166091751-4da4c1c3-0ae6-4549-94a3-f6bee030f719.gif)
