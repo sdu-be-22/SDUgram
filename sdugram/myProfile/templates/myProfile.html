@@ -17,7 +17,11 @@
             <div class="col-md-4 mb-2" style = "opacity:0.93">
               <div class="card h-50" style = "background-color:rgb(255,248,220)">
                   <div class="d-flex align-items-center flex-column text-center" >
+                    {% if  user.profile.gender == 'Female' and user.profile.avatar == 'profile_images/default_avatar.png'%}
+                    <img src="{% static 'img/pinkavatar.jpg' %}" alt="Admin" class="rounded-circle mt-2" style = "width:170px;height:170px;">
+                    {% else %}
                     <img src="{{ user.profile.avatar.url }}" alt="Admin" class="rounded-circle mt-2" style = "width:170px;height:170px;">
+                    {% endif %}
                     <div class="mt-3">
                       <h4 style = "font-size:30px; margin-bottom:20px;">{{ user.username }}</h4>
                       <a class="btn btn-success" href = "{% url 'myAdvertisements' %}">My advertisements</a>
