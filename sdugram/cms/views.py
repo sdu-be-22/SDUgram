@@ -80,3 +80,7 @@ def count_posts(request):
         'sports':sports }
 
     return render(request,'category_info.html',ers)
+
+
+def teampage(request):
+    return render(request,'team.html')
