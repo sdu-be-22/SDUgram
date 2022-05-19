@@ -1,12 +1,24 @@
 {% block search %}
     {% load static %}
-<div class="search_div">
 
-    <form method="post" action="{% url 'Search' %}">
-        {% csrf_token %}
-        <input name="searched" type="text" class="find_input" placeholder="3 054 402 nearby ads"/>
-        <input type="submit" class="btn_apply btn_search">Search</input>
-    </form>
-{#    <input class="location_input" type="text" placeholder="Весь Казахстан">#}
+
+
+<!--        <input name="searched" type="text" class="find_input" placeholder="3 054 402 nearby ads"/>-->
+<!--        <input type="submit" class="btn_apply btn_search">Search</input>-->
+
+<!--{#    <input class="location_input" type="text" placeholder="Весь Казахстан">#}-->
+
+<div class="search_div">
+    <div class="search-wrapper active">
+    <div class="input-holder shadow">
+        <form method="POST" action="{% url 'Search' %}">
+            {% csrf_token %}
+            <input type="text" class="search-input" name="searched" placeholder="Type to search" />
+<!--            <input name="searched" type="text" class="find_input" placeholder="3 054 402 nearby ads"/>-->
+            <button class="search-icon" onclick="searchToggle(this, event);"><span></span></button>
+        </form>
+    </div>
+    <span class="close" onclick="searchToggle(this, event);"></span>
+    </div>
 </div>
 {% endblock %}
