@@ -2,8 +2,6 @@
 {% load static %}
 {% block index %}
 <h1>{{user}}</h1>
-
-
 {% for i in items %}
   <div class="card mb-3" style="margin: 16px">
     <img src="{{ i.advertisement_image.url }}" class="card-img-top" alt="..." style="height: 200px; width: 400px">
@@ -13,7 +11,5 @@
       <p class="card-text"><small class="text-muted">{{ i.advertisement_price }}</small></p>
     </div>
   </div>
-
 {% endfor %}
-
 {% endblock index %}

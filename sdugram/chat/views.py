@@ -5,19 +5,18 @@ from .models import Messages
 from .forms import *
 from django.db.models import Q
 from django.contrib.auth.models import User
-
 from django.contrib import messages
-# Create your views here.
 
-def message_page(request, user_id = None):
+
+def message_page(request, user_id=None):
     if not request.user.is_authenticated:
         return redirect('login')
     if user_id:
-        emails = Messages.objects.filter(to_user = request.user, from_user = user_id)
+        emails = Messages.objects.filter(to_user=request.user, from_user=user_id)
     else:
-        emails = Messages.objects.filter(to_user = request.user)
+        emails = Messages.objects.filter(to_user=request.user)
     users = []
-    for e in Messages.objects.filter(to_user = request.user):
+    for e in Messages.objects.filter(to_user=request.user):
         users.append(e.from_user)
     users = set(users)
     sysdate = datetime.now()
@@ -36,4 +35,3 @@ def message_page(request, user_id = None):
                                          'now_datetime': sysdate,
                                          'users': users,
                                          })
-

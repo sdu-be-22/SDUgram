@@ -17,3 +17,20 @@ def add_favorite(request):
         data['success'] = True
 
     return redirect('Home')
+
+def post_favorite_list(request):
+    #user = request.user
+
+    #favorite_posts = Advt.objects.all()
+    favorite_posts = request.user.profile.fav_adver.all()
+    print(favorite_posts)
+    print(Advt.objects.all())
+    context={
+        'favorite_posts':favorite_posts,
+    }
+    # if request.GET.get('favbtn'):
+    #     fpost=favorite_posts.get(advt_host_id=id)
+    #     fpost.advertisement_favourites == 1
+    #     fpost.save()
+
+    return render(request, 'favorites.html',context)

@@ -14,7 +14,6 @@ class Advt(models.Model):
     advertisement_location = models.CharField(max_length=30, default="Алматы")
     advertisement_category = models.ForeignKey('Category', on_delete=models.PROTECT, verbose_name='category')
     advertisement_view = models.IntegerField(default=0)
-    advertisement_slug = models.SlugField(max_length=200, unique=True, db_index=True, verbose_name='URL')
 
     def __str__(self):
         return self.advertisement_name
