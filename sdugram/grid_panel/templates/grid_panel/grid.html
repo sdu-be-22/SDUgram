@@ -2,6 +2,7 @@
 {% block index %}
 
 <section>
+
     <h1 style="text-align:center;">Main categories</h1>
     <div class="row scroll" >
         {% for cats in cat_list %}
@@ -22,6 +23,47 @@
             Filter by:
           </a>
         </p>
+    <div id="group">
+        <ul class="ks-cboxtags">
+            <li><input type="checkbox" id="checkboxOne" value="Atyrau"><label for="checkboxOne">Atyrau</label></li>
+            <li><input type="checkbox" id="checkboxTwo" value="Nur-Sultan" ><label for="checkboxTwo">Nur-Sultan</label></li>
+            <li><input type="checkbox" id="checkboxThree" value="Алматы" ><label for="checkboxThree">Almaty</label></li>
+            <li><input type="checkbox" id="checkboxFour" value="Shymkent"><label for="checkboxFour">Shymkent</label></li>
+            <li><input type="checkbox" id="checkboxFive" value="Karaganda"><label for="checkboxFive">Karaganda</label></li>
+            <li><input type="checkbox" id="checkboxSix" value="Aqtobe"><label for="checkboxSix">Aqtobe</label></li>
+            <li><input type="checkbox" id="checkboxSeven" value="Aktau"><label for="checkboxSeven">Aktau</label></li>
+            <li><input type="checkbox" id="checkboxEight" value="Balqash"><label for="checkboxEight">Balqash</label></li>
+            <li><input type="checkbox" id="checkboxNine" value="Zhezkazgan"><label for="checkboxNine">Zhezkazgan</label></li>
+            <li><input type="checkbox" id="checkboxTen" value="Kentau"><label for="checkboxTen">Kentau</label></li>
+            <li class="ks-selected"><input type="checkbox" id="checkboxEleven" value="Kyzylorda"><label for="checkboxEleven">Kyzylorda</label></li>
+            <li><input type="checkbox" id="checkboxTwelve" value="Kokshetau"><label for="checkboxTwelve">Kokshetau</label></li>
+            <li><input type="checkbox" id="checkboxThirteen" value="Kostanay"><label for="checkboxThirteen">Kostanay</label></li>
+            <li><input type="checkbox" id="checkboxFourteen" value="Zhanaozen"><label for="checkboxFourteen">Zhanaozen</label></li>
+            <li><input type="checkbox" id="checkboxFifteen" value="Pavlodar"><label for="checkboxFifteen">Pavlodar</label></li>
+        </ul>
+
+    </div>
+    <form id='range_filter' action="{% url 'range_price' %}" method="POST" style="margin-top:25px;">
+            {% csrf_token %}
+            <div class="row justify-content-center" >
+                <div class="form-outline">
+                    <label class="form-label justify-content-center" for="typeNumber" style="">Min.</label>
+                    <input type="number" name="typeNumber" id="typeNumber" class="form-control active" value="{% if range_num1 %}{{ range_num1 }}{% else %}0{% endif %}">
+
+
+                <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 61.6px;"></div><div class="form-notch-trailing"></div></div></div>
+
+
+                <div class="form-outline justify-content-center">
+                    <label class="form-label justify-content-center" for="typeNumber2" style="">Max.</label>
+                    <input type="number" name="typeNumber2" id="typeNumber2" class="form-control active" value="{% if range_num2 %}{{ range_num2 }}{% else %}200000000{% endif %}">
+
+                <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 64.8px;"></div><div class="form-notch-trailing"></div></div></div>
+                <p style="opacity:0"><input type="submit"></p>
+            </div>
+        </form>
+
+
         <select class="form-select" id="form-select"" aria-label="Default select example">
             <option id="selected-form" selected>Open this select menu</option>
             <option value="1"><a href="{% url 'today' %}" style="text-align:center" >
@@ -54,7 +96,7 @@
           </div>
         </div>
 
-    <div class="obj">
+    <div class="obj" id="obj">
         {% if searched %}
             <h1 style="text-align:center;">Search: {{ searched }}</h1>
         {% else %}

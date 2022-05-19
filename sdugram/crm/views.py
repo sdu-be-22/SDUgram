@@ -5,14 +5,18 @@ from cms.models import CmsSlider
 from price.models import PriceCard, PriceTable
 from telegrambot.sendMessage import sendTelegram
 from grid_panel.models import Advt, Category
+from django.http import JsonResponse
 
 # Create your views here.
 def first_page(request):
     slider_list = CmsSlider.objects.all()
     advt_list = Advt.objects.all()
+    if request.POST.get('city'):
+        advt_list = Advt.objects.filter(advertisement_location = request.POST.get('city'))
     cat_list = Category.objects.all()
     paginator = Paginator(advt_list, 3)
     page_number = request.GET.get('page')
+
     page_obj = paginator.get_page(page_number)
     # for i in advt_list:
     #     print(i)
