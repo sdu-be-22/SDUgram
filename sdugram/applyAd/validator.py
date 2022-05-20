@@ -12,10 +12,12 @@ def validate_image(self, request):
         w, h = get_image_dimensions(image)
         if w > 500:
             # raise forms.ValidationError("The image is %i pixel wide. It's supposed to be 500px" % w)
-            messages.warning(request, "The image is %i pixel wide. It's supposed to be 500px" % w)
-            return redirect('apply')
+            # messages.warning(request, "The image is %i pixel wide. It's supposed to be 500px" % w)
+            # return redirect('apply')
+            return  ("The image is %i pixel wide. It's supposed to be 500px" % w)
         if h > 500:
             # raise forms.ValidationError("The image is %i pixel high. It's supposed to be 200px" % h)
-            messages.warning(request, "The image is %i pixel high. It's supposed to be 200px" % h)
-            return redirect('apply')
-    return image
+            # messages.warning(request, "The image is %i pixel high. It's supposed to be 200px" % h)
+            # return redirect('apply')
+            return ("The image is %i pixel wide. It's supposed to be 500px" % h)
+    return None

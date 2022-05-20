@@ -40,6 +40,14 @@
             <li><input type="checkbox" id="checkboxThirteen" value="Kostanay"><label for="checkboxThirteen">Kostanay</label></li>
             <li><input type="checkbox" id="checkboxFourteen" value="Zhanaozen"><label for="checkboxFourteen">Zhanaozen</label></li>
             <li><input type="checkbox" id="checkboxFifteen" value="Pavlodar"><label for="checkboxFifteen">Pavlodar</label></li>
+            <li><input type="checkbox" id="checkboxSixteen" value="Petropavl"><label for="checkboxSixteen">Petropavl</label></li>
+            <li><input type="checkbox" id="checkboxSeventeen" value="Ridder"><label for="checkboxSeventeen">Ridder</label></li>
+            <li><input type="checkbox" id="checkboxNineteen" value="Semey"><label for="checkboxNineteen">Semey</label></li>
+            <li><input type="checkbox" id="checkboxTwentyOne" value="Taraz"><label for="checkboxTwentyOne">Taraz</label></li>
+            <li><input type="checkbox" id="checkboxTwentyTwo" value="Turkistan"><label for="checkboxTwentyTwo">Turkistan</label></li>
+            <li><input type="checkbox" id="checkboxTwentyThree" value="Oral"><label for="checkboxTwentyThree">Oral</label></li>
+            <li><input type="checkbox" id="checkboxTwentyFour" value="Oskemen"><label for="checkboxTwentyFour">Oskemen</label></li>
+
         </ul>
 
     </div>
@@ -62,23 +70,6 @@
                 <p style="opacity:0"><input type="submit"></p>
             </div>
         </form>
-
-
-        <select class="form-select" id="form-select"" aria-label="Default select example">
-            <option id="selected-form" selected>Open this select menu</option>
-            <option value="1"><a href="{% url 'today' %}" style="text-align:center" >
-                    Only today
-          </a></option>
-            <option value="2"><a href="{% url 'orderbydate' %}" style="text-align:center" >
-                    Order by date
-          </a></option>
-            <option value="3"><a href="{% url 'orderbymax' %}" style="text-align:center" >
-                    Order by price max
-          </a></option>
-            <option value="4"><a style="text-align:center" >
-                    Order by price min
-          </a></option>
-        </select>
         <div class="collapse" id="collapseExample">
           <div class="card card-body">
               <a href="{% url 'today' %}" style="text-align:center" >

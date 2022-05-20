@@ -1,6 +1,4 @@
 from django.shortcuts import render, redirect
-
-# Create your views here.
 from .models import Favorites
 from grid_panel.models import Advt
 from django.contrib import messages

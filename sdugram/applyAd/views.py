@@ -2,7 +2,6 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .forms import *
 from django.contrib import messages
-from telegrambot.sendMessage import sendTelegram
 from grid_panel import *
 from myProfile.models import *
 from .validator import *
@@ -16,13 +15,18 @@ def apply(request):
     if request.method == 'POST':
         form = AdApplicationForm(request.POST, request.FILES)
         if form.is_valid():
-            if not validate_image(form, request):
+            bool = validate_image(form, request)
+            if bool == None:
                 advt = form.save(False)
                 advt.advertisement_user = request.user
                 advt.save()
                 messages.success(request,
                                  f'Your advertisement is successfully uploaded! {advt.advertisement_user.username}')
                 return redirect('Home')
+            else:
+                messages.warning(request,
+                                 bool)
+
     else:
         form = AdApplicationForm(instance=request.user)
 

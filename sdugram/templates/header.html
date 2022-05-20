@@ -13,13 +13,6 @@
                 <a class="nav-link"></a>
             </li>
         </ul>
-        <div class="search-wrapper">
-         <div class="input-holder">
-            <input type="text" class="search-input" placeholder="Type to search" />
-            <button class="search-icon" onclick="searchToggle(this, event);"><span></span></button>
-        </div>
-        <span class="close" onclick="searchToggle(this, event);"></span>
-    </div>
     <form class="form-inline my-2 my-lg-0 pr-5">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
              {% if request.user.is_authenticated %}
