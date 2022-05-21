@@ -7,3 +7,6 @@ from grid_panel.models import Advt
 class Favorites(models.Model):
     users = models.ManyToManyField(User)
     advt = models.IntegerField()
+    class Meta:
+        verbose_name_plural = "Favorites"
+        verbose_name = "Favorite"
