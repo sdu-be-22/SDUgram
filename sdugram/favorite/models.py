@@ -4,6 +4,4 @@ from grid_panel.models import Advt
 
 
 # Create your models here.
-class Favorites(models.Model):
-    users = models.ManyToManyField(User)
-    advt = models.IntegerField()
+

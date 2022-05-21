@@ -202,6 +202,7 @@ def advt_detail_view(request):
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
         dict_obj["page_obj"] = page_obj
+        dict_obj["advt_list"] = ser
     else:
         array = []
         # for i in advt_list:
