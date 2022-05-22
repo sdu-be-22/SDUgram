@@ -8,8 +8,7 @@
         <div class="col-md-8">
             <img src="{{ advt.advertisement_image.url }}" alt="" class="img-thumbnail" style="width: 60rem; height: 40rem">
         </div>
-        <div class="col-md-4">
-            <h3>User</h3>
+        <div class="col-md-4" style="border: 4px solid #ffc109;">
             <div class="d-flex p-2">
                 <img src="{% static './img/default_avatar.png' %}" width="100" height="100" alt="...">
                 <div class="ml-3">
@@ -36,11 +35,11 @@
             </div>
         </div>
     </div>
-        <div class="row">
+        <div class="row" style="padding-top: 35px">
             <div class="col-md-12">
-                <h1>{{ advt.advertisement_name }}</h1>
+                <h4>{{ advt.advertisement_name }}</h4>
                 <h2>{{ advt.advertisement_price }} KZT</h2>
-                <h1>Description:</h1>
+                <h3>Description:</h3>
                 <div class="col-md-7">
                 <p>{{ advt.advertisement_description }}</p>
                 </div>
@@ -53,7 +52,7 @@
             <form action="{% url 'thanks_id' adver_id %}" method="POST">
                 {% csrf_token %}
                 {{form}}
-                <button class="btn_apply" style="margin-top: 30px;" type="submit">Submit comment</button>
+                <button class="btn btn-warning" style="margin-top: 30px;" type="submit">Submit comment</button>
             </form>
         </section>
     </div>
@@ -72,7 +71,7 @@
                 </div>
             {% endfor %}
         {% else %}
-            <h1 style="text-align:center">Empty</h1>
+            <h4 style="text-align:center">Empty</h4>
         {% endif %}
     </div>
 </section>
