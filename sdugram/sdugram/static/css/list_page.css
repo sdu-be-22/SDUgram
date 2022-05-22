@@ -1,4 +1,4 @@
-  .list-pages {
+.list-pages {
 	text-align: center;
 	margin: 0 0 20px 0;
 
@@ -14,28 +14,31 @@ a {
 }
 .list-pages ul li {
 	display: inline-block;
-	margin: 0 20px 0 0;
+	margin: 0 5px 0 0;
 }
 .list-pages a {
-	color: #000;
-	font-size: 24px;
+	color: rgb(0, 47, 52);
+	font-size: 15px;
 	text-decoration: none;
 }
 .list-pages .page-num, .page-num-selected {
 	display: inline-block;
-	width: 60px;
-	height: 60px;
-	padding: 9px 0 0 0;
-	border: 2px solid #d0d0d0;
-	border-radius: 30px;
+	width: 30px;
+	height: 30px;
+	padding: 0px 0 0 0;
+	border: none;
+	border-radius: 50%;
 }
 .list-pages .page-num:hover {
-	box-shadow: 3px 3px 1px #d0d0d0;
+    border: 3px solid rgb(0, 47, 52);
+	/*box-shadow: 3px 3px 1px #d0d0d0;*/
 }
 .list-pages .page-num-selected {
-	border: none;
+	/*border: none;*/
+	border: 2px solid rgb(0, 47, 52);
+	border-width:3px;
 	color: #000;
-	font-size: 20px;
+	font-size: 15px;
 }
 .list-pages .page-num-selected:hover {
 	box-shadow: none;

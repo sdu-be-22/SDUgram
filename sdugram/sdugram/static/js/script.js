@@ -130,21 +130,21 @@ function update_ad(val) {
             const div = document.createElement('div');
             div.className = "row m-4 card_c " + mydata[i].pk;
             div.id = "row m-4 card_c " + mydata[i].pk;
-            div.style = "padding:10px; background-color:#C8F8F6";
+            div.style = "padding:10px; background-color:white";
             var fav_img = "";
             if (mydata[i].fields)
             div.innerHTML = `
-                <div class="col-md-3">
-                    <a href=/adver/${mydata[i].pk}/><img src="media/${mydata[i].fields.advertisement_image}" class="card-img-top" style="width: 16rem; height: 14rem;border:solid 8px #FAE6B1;"></a>
+                <div class="col-md-3" style="max-width: 23%;">
+                    <a href=/adver/${mydata[i].pk}/><img src="media/${mydata[i].fields.advertisement_image}" class="card-img-top" style="width: 16rem; height: 12rem;"></a>
                 </div>
-                <div class="col-md-7 pl-5">
+                <div class="col-md-7">
                     <a href=/adver/${mydata[i].pk}/ style="color:black;font-family:'Plus Jakarta Sans',sans-serif;"><h4>${mydata[i].fields.advertisement_name}</h4></a>
                     <p class="card-text" style="font-family: 'Mulish', sans-serif; serif;font-weight:bold;font-size:17px;">${mydata[i].fields.advertisement_location}, KAZAKHSTAN</p>
                     <p>${mydata[i].fields.advertisement_date_created}</p>
                 </div>
-                <div class="col-md-2">
-                    <p class="card-text" style="font-size:20px;font-weight:bold;">${mydata[i].fields.advertisement_price} KZT</p>
-                    <form method="POST">
+                <div class="col-md-2" style="padding-right: 5px;">
+                    <p class="card-text" style="float:right; font-size:20px;font-weight:bold; padding-left: 35px">${mydata[i].fields.advertisement_price} KZT</p>
+                    <form method="POST" style="float:right;">
                         <input type="hidden" name="csrfmiddlewaretoken" value="IUPjN0BPaYtkBKeR8VT6Bol8jSl03yTYxCxmO5CmzUm8VQCYHMKNnIt3VBCjfzbB">
                         <button class="bt" onclick="postdata(this)" value=mydata[i].pk type="button" style="border:0; background:transparent;">
                             <img id="a"+mydata[i].pk src="/static/img/icons8-favorite-48.png" alt="">

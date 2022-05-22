@@ -1,9 +1,16 @@
+@font-face {
+    font-family: geomanistregular;
+    url('D:\User\Documents\SDU\back-end\sdu-be\sdugram\sdugram\static\fonts\geomanist-regular-webfont.ttf');
+}
+
 .div_background {
     background-color: #C8F8F6;
     padding: 7rem;
 }
+
 body {
     background-color: #C8F8F6;
+    font-family: "Ubuntu", sans-serif;
 }
 .div_main {
     padding: 1rem;
@@ -30,6 +37,19 @@ body {
     background-color: #CBF7EE;
     color: #002F34;
 }
+.obj {
+    background-color: #F2F4F5;
+    border-radius: 1rem;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color:#002f34;
+
+}
+.obj h4{
+color:#002f34;
+
+}
 
 .location_input {
     padding: 1.4rem;
@@ -45,8 +65,9 @@ body {
     padding-bottom: 3rem;
 }
 .card_c {
-    box-shadow: 0px -5px 5px -5px rgba(0, 47, 52, 0.6);
+   /* box-shadow: 0px -5px 5px -5px rgba(0, 47, 52, 0.6);*/
     border: 0;
+    background-color: #C8F8F5;
 }
 .li_choose {
     color: #002F34;
@@ -71,7 +92,7 @@ body {
     background-color: #002F34;
 }
 .header_text {
-    font-family: 'Open Sans Condensed', sans-serif;
+    /*font-family: 'Open Sans Condensed', sans-serif;*/
     font-size: 15px;
 }
 li a{
@@ -83,12 +104,8 @@ nav a {
 svg {
     margin-right: 8px;
 }
-@font-face {
-    font-family: titleFont;
-    src: url(TitleStyle.ttf);
-}
 .title {
-    font-family: titleFont, serif;
+   /* font-family: titleFont, serif;*/
 }
 .btn_search {
     border-left: 0.2rem #F2F4F5 solid;
@@ -161,7 +178,7 @@ svg {
 }
 #Logotext{
   font-size:25px;
-  font-family:'Playfair Display SC', serif;
+ /* font-family: geomanistregular, serif;*/
 }
 
 .whatsapp-number {
@@ -239,7 +256,7 @@ form>.genders{
 form>label{
     font-size:25px;
     margin-left: 45px;
-    font-family: 'Staatliches', cursive;
+   /* font-family: 'Staatliches', cursive;*/
 }
 #email, #cardNo{
     width:230px;
@@ -251,7 +268,7 @@ form>label{
     border-radius: 5px;
     background-color: whitesmoke;
     margin-left: 75%;
-    font-family: 'Questrial', sans-serif;
+   /* font-family: 'Questrial', sans-serif;*/
 }
 .settingBlock{
     display: flex;
@@ -262,7 +279,7 @@ form>label{
 .settingBlock>p{
     font-size: 25px;
     text-align: center;
-    font-family: 'Parisienne', cursive;
+   /* font-family: 'Parisienne', cursive;*/
 }
 .selected {
 
@@ -386,7 +403,7 @@ body {
     box-sizing: border-box;
     border:none;
     outline:none;
-    font-family:"Open Sans", Arial, Verdana;
+   /* font-family:"Open Sans", Arial, Verdana;*/
     font-size: 16px;
     font-weight: 400;
     line-height: 20px;
@@ -489,11 +506,6 @@ body {
 }
 
 
-body {
-	background: #eef0f5;
-	font-family: Arial;
-	font-size: 14px;
-}
 .button .svg {
     display: none;
     position: absolute;
@@ -589,7 +601,7 @@ ul.ks-cboxtags li label::before {
     font-variant: normal;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
-    font-family: "Font Awesome 5 Free";
+    /*font-family: "Font Awesome 5 Free";*/
     font-weight: 900;
     font-size: 12px;
     padding: 2px 6px 2px 2px;

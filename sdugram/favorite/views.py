@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Favorites
+# from .models import Favorites
 from grid_panel.models import Advt
 from django.contrib import messages
 
@@ -21,8 +21,6 @@ def post_favorite_list(request):
 
     #favorite_posts = Advt.objects.all()
     favorite_posts = request.user.profile.fav_adver.all()
-    print(favorite_posts)
-    print(Advt.objects.all())
     context={
         'favorite_posts':favorite_posts,
     }

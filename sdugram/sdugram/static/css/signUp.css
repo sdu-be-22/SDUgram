@@ -9,7 +9,7 @@ margin:0px;
 #signUpBlock{
 background-color:rgba(255, 255, 255, 0.87);
 padding:75px;
-font-family:'Merriweather', serif;
+/*font-family:'Merriweather', serif;*/
 font-weight:bolder;
 }
 legend{

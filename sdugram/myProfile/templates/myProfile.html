@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block index %}
-<div class="container pt-5 px-4" style = "background-color:#a5ceb0">
+<div style = "background-color:#B3DEE5">
+<div class="container pt-5 px-4" style = "background-color:#B3DEE5">
     <div class="main-body">
 
           <!-- Breadcrumb -->
@@ -15,7 +16,7 @@
 
           <div class="row gutters-sm" style = "height:650px;">
             <div class="col-md-4 mb-2" style = "opacity:0.93">
-              <div class="card h-50" style = "background-color:rgb(255,248,220)">
+              <div class="card h-50" style = "background-color:white">
                   <div class="d-flex align-items-center flex-column text-center" >
                     {% if  user.profile.gender == 'Female' and user.profile.avatar == 'profile_images/default_avatar.png'%}
                     <img src="{% static 'img/pinkavatar.jpg' %}" alt="Admin" class="rounded-circle mt-2" style = "width:170px;height:170px;">
@@ -123,4 +124,5 @@
           </div>
         </div>
     </div>
+  </div>
 {% endblock %}

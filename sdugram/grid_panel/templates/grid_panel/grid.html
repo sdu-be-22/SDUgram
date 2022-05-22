@@ -18,11 +18,6 @@
         {% endfor %}
 
     </div>
-        <p>
-            <a class="btn btn-light" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-            Filter by:
-          </a>
-        </p>
     <div id="group">
         <ul class="ks-cboxtags">
             <li><input type="checkbox" id="checkboxOne" value="Atyrau"><label for="checkboxOne">Atyrau</label></li>
@@ -51,7 +46,33 @@
         </ul>
 
     </div>
-    <form id='range_filter' action="{% url 'range_price' %}" method="POST" style="margin-top:25px;">
+    <div class="row">
+    <div class="col-md-3">
+<!--        <select class="form-select" style="margin-top: 66px;margin-left: 99px; width:200px; text-align:center;" aria-label="Default select example">-->
+
+<!--            <option selected>Featured</option>-->
+<!--            <option value="1">Price:Low to High</option>-->
+<!--            <option value="2">Price:High to Low</option>-->
+<!--            <option value="3">Newest</option>-->
+<!--            <option value="3">Oldest</option>-->
+<!--        </select>-->
+        <div class="dropdown" style="margin-top: 56px; margin-left: 60px;">
+          <button class="btn btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Sort by: Featured
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="{% url 'orderbymax'  %}">Price:Low to High</a></li>
+              <li><a class="dropdown-item" href="{% url 'orderbymin' %}">Price:High to Low</a></li>
+              <li><a class="dropdown-item" href="{% url 'orderbydate' %}">Newest</a></li>
+              <li><a class="dropdown-item" href="{% url 'orderbydate' %}">Oldest</a></li>
+
+          </ul>
+        </div>
+    </div>
+    <div class="col-md-6">
+
+
+    <form  id='range_filter' action="{% url 'range_price' %}" method="POST" style="margin-top:25px;">
             {% csrf_token %}
             <div class="row justify-content-center" >
                 <div class="form-outline">
@@ -70,44 +91,32 @@
                 <p style="opacity:0"><input type="submit"></p>
             </div>
         </form>
-        <div class="collapse" id="collapseExample">
-          <div class="card card-body">
-              <a href="{% url 'today' %}" style="text-align:center" >
-                    Only today
-          </a>
-              <a href="{% url 'orderbydate' %}" style="text-align:center" >
-                    Order by date
-          </a>
-                <a href="{% url 'orderbymax' %}" style="text-align:center" >
-                    Order by price max
-          </a>
-                <a href="{% url 'orderbymin' %}" style="text-align:center" >
-                    Order by price min
-          </a>
-          </div>
+        </div>
         </div>
 
     <div class="obj" id="obj">
         {% if searched %}
             <h1 style="text-align:center;">Search: {{ searched }}</h1>
         {% else %}
-            <h1 style="text-align:center;">Advertisements</h1>
+
         {% endif %}
 
         {% if advt_list %}
+            <h1 style="text-align:center;">Advertisements</h1>
         {% for a in page_obj %}
-            <div class="row m-4 card_c {{ a.pk }}" id="row m-4 card_c {{ a.pk }}" style="padding:10px; background-color:#C8F8F6">
-        <div class="col-md-3">
-            <a href="{{ a.get_absolute_url }}"><img src="{{ a.advertisement_image.url }}"  class="card-img-top" style="width: 16rem; height: 14rem;border:solid 8px #FAE6B1;"></a>
+
+            <div class="row m-4 card_c {{ a.pk }}" id="row m-4 card_c {{ a.pk }}" style="padding:10px; background-color:white">
+        <div class="col-md-3" style="max-width: 23%;">
+            <a href="{{ a.get_absolute_url }}"><img src="{{ a.advertisement_image.url }}"  class="card-img-top" style="width: 16rem; height: 12rem;"></a>
         </div>
-        <div class="col-md-7 pl-5">
+        <div class="col-md-7" >
             <a href="{{ a.get_absolute_url }}" style="color:black;font-family:'Plus Jakarta Sans',sans-serif;"><h4>{{ a.advertisement_name }}</h4></a>
             <p class="card-text" style = "font-family: 'Mulish', sans-serif; serif;font-weight:bold;font-size:17px;">{{ a.advertisement_location }}, KAZAKHSTAN</p>
             <p>{{ a.advertisement_date_created }}</p>
         </div>
-        <div class="col-md-2">
-            <p class="card-text" style="font-size:20px;font-weight:bold;">{{ a.advertisement_price }} KZT</p>
-            <form  method="POST" >
+        <div class="col-md-2" style="padding-right: 5px;">
+            <p class="card-text" style="float:right; font-size:20px;font-weight:bold; padding-left: 35px">{{ a.advertisement_price }} KZT</p>
+            <form  method="POST" style="float:right;" >
              {% csrf_token %}
                  <button class="bt" onclick=postdata(this) value="{{ a.pk }}" type="button" style="border:0; background:transparent;">
                             {% if a in request.user.profile.fav_adver.all %}
@@ -125,8 +134,11 @@
 
 
         {% else %}
-            <h1>Not found</h1>
-        {% endif %}
+        <div class="notfound" style="text-align:center; margin: 50px 0 50px 0;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><g fill="none" fill-rule="evenodd"><path fill="#CEDDFF" d="M126.667 69.334c0 31.664-25.67 57.333-57.334 57.333S12 100.997 12 69.334C12 37.669 37.669 12 69.333 12c31.665 0 57.334 25.67 57.334 57.334"/><path fill="#6C99FF" d="M56.605 121.796L54.601 17.594c42.429 6.09 63.683 24.758 63.76 56.003 0 21.11-20.585 37.175-61.756 48.199z"/><path fill="#002F34" d="M69.8 114c-24.371 0-44.2-19.827-44.2-44.2s19.829-44.2 44.2-44.2c24.371 0 44.2 19.827 44.2 44.2S94.171 114 69.8 114zm69.56 15.742l-.001.001-24.214-24.213C122.92 95.685 127.6 83.29 127.6 69.8c0-31.872-25.928-57.8-57.8-57.8C37.928 12 12 37.928 12 69.8c0 31.872 25.928 57.8 57.8 57.8 13.49 0 25.885-4.681 35.73-12.455l24.213 24.214 8.64 8.641H148v-9.616l-8.64-8.642z"/><path fill="#002F34" d="M68 82.035l12.702-12.702 4.632 4.631-12.702 12.702zM50.018 77.093a6.889 6.889 0 119.742-9.742 6.889 6.889 0 01-9.742 9.742m16-15.111a6.89 6.89 0 119.742-9.742 6.89 6.89 0 01-9.742 9.742"/></g></svg>
+            <h3>We didn't find what you're looking for...</h3>
+        </div>
+            {% endif %}
 
     </div>
     {% if page_obj.has_other_pages %}
@@ -139,7 +151,9 @@
             {% endif  %}
             {% for p in page_obj.paginator.page_range %}
             {% if page_obj.number == p %}
-            <li class="page-num page-num-selected"> {{ p }}</li>
+            <li class="page-num page-num-selected">
+                <p>{{ p }}</p>
+            </li>
             {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2  %}
             <li class="page-num">
                <p><a href="?page={{ p }}">{{ p }}</a></p>
