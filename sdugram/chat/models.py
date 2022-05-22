@@ -13,6 +13,10 @@ class Messages(models.Model):
     date = models.DateTimeField(default=timezone.now)
     def __str__(self):
         return self.subject
+    class Meta():
+        verbose_name = "Message"
+        verbose_name_plural = "Messages"
+        ordering = ['-date',]
 
     def get_date(self):
         time = timezone.now()
@@ -27,3 +31,5 @@ class Messages(models.Model):
                 if self.date.year == time.year:
                     return str(time.month - self.date.month) + " months ago"
         return self.date
+
+

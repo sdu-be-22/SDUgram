@@ -16,6 +16,9 @@ class Profile(models.Model):
     avatar = models.ImageField(blank=True, default='profile_images/default_avatar.png', upload_to='media/profile_images/')
     fav_adver = models.ManyToManyField(Advt)
 
+    class Meta:
+        verbose_name_plural = 'Profiles'
+        verbose_name = 'profile'
 
 def save(self, *args, **kwargs):
     super().save()

@@ -7,6 +7,9 @@
     background-color: #C8F8F6;
     padding: 7rem;
 }
+.div_background_2 {
+    background-color: #b3dee5;
+}
 
 body {
     background-color: #C8F8F6;
@@ -632,8 +635,3 @@ ul.ks-cboxtags li input[type="checkbox"] {
 ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   border: 2px solid #e9a1ff;
 }
-
-
-
-
-

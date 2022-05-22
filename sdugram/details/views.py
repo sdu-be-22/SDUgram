@@ -14,15 +14,6 @@ def show_details(request):
          "item_detail": item_about, "form": OrderForm()}
     return render(request, "./detail.html", d)
 
-
-def thanks_page(request):
-    name = request.POST['name']
-    phone = request.POST['phone']
-    # element = Order(order_name=name, order_phone=phone)
-    # element.save()
-    return render(request, './thanks.html', {'name': name,
-                                             'phone': phone})
-
 def show_adver(request, adver_id):
     for i in Advt.objects.filter(pk=adver_id):
         i.advertisement_view = i.advertisement_view + 1
