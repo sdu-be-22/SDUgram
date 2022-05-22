@@ -24,7 +24,7 @@ def thanks(request):
 
 
 def thanks_id(request, advertisement_id):
-  description = request.POST['description']
+  description = request.POST['Comments']
   model = FeedbackItemModel(caption=description, user=request.user, item=advertisement_id)
   model.save()
-  return render(request, 'feedbacks/thanks.html')
+  return redirect('adver', advertisement_id)
