@@ -39,7 +39,7 @@ urlpatterns = [
     path('apply/', applyAd_view.apply, name='apply'),
     # path('success', applyAd_view.success, name = 'success'),
     path('myProfile/', include("myProfile.urls"), name='myProfile'),
-    path('help/', help_views.help_page),
+    path('help/', help_views.help_page, name='help'),
     path('search/', grid_panel.advt_detail_view, name="Search"),
     path('login/', include("signIN.urls"), name="login"),
     path('register/', include("signUp.urls"), name='register'),
