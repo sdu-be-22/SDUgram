@@ -7,7 +7,7 @@
     <div class="row scroll" >
         {% for cats in cat_list %}
         <div class="col-md-3">
-            <img src="{% static cats.image %}" alt="" style="width:100px; background-color: rgb(200, 248, 246); border-radius: 50%;">
+            <img src="{% static cats.image %}" alt="" style="width:100px; background-color: rgb(200, 248, 246); border-radius: 50%; margin-bottom: 10px">
             {% if selected == cats.slug %}
             <a class="li_choose selected" style="color:blue;" href="{{ cats.get_absolute_url }}">{{ cats.name }}</a>
             {% else %}
